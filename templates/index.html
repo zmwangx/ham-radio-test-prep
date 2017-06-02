@@ -1,0 +1,58 @@
+{% set title %}Amateur Radio Technician Class Question Pool (2014&ndash;2018){% endset -%}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <title>{{ title }}</title>
+  <style>
+    body { width: 800px; margin: 0 auto; font: 16px "Times New Roman", Times, serif; }
+    h1 { font-size: 1.5em; }
+    h2 { font-size: 1.3em; }
+    h3 { font-size: 1.1em; }
+    h1, h2, h3 { padding: 0; margin: 1em 0; }
+    footer { font-size: 0.8em; color: #999; text-align: center; margin: 1em; }
+    a { color: inherit; }
+    .question { margin: 1em 0; }
+    .question .title { font-weight: bold; cursor: help; }
+    .choices { list-style-type: upper-alpha; padding: 0 0 0 1.5em; margin: 0.5em 0 0 0; }
+    .answer-a .title:hover ~ .choices .choice-a span,
+    .answer-b .title:hover ~ .choices .choice-b span,
+    .answer-c .title:hover ~ .choices .choice-c span,
+    .answer-d .title:hover ~ .choices .choice-d span,
+    .show-answer.answer-a .choice-a span,
+    .show-answer.answer-b .choice-b span,
+    .show-answer.answer-c .choice-c span,
+    .show-answer.answer-d .choice-d span
+    { background: #66ff66; }
+    @media (max-width: 820px) {
+      body { width: calc(100% - 20px); }
+    }
+  </style>
+</head>
+<body>
+  <h1>{{ title }}</h1>
+  {%- for obj in objects %}
+  {%- if obj|issection %}
+  <h2 id="{{ obj.id }}">{{ obj.id }} &mdash; {{ obj.title }}</h2>
+  {%- elif obj|issubsection %}
+  <h3 id="{{ obj.id }}">{{ obj.id }} &mdash; {{ obj.title }}</h3>
+  {%- else %}
+  <div class="question answer-{{ obj.answer|lower }}">
+    <div class="title">{{ obj.id }} {{ obj.ref }}</div>
+    <div class="description">{{ obj.question }}</div>
+    <ol class="choices">
+      {%- for choice, text in obj.choices %}
+      <li class="choice-{{ choice|lower }}"><span>{{ text }}</span></li>
+      {%- endfor %}
+    </ol>
+  </div>
+  {%- endif %}
+  {%- endfor %}
+  <footer>&#169; 2017 <a href="http://www.arrl.org/question-pools" target="_blank">AARL</a> &#183; Website by <a href="https://zhimingwang.org" target="_blank">Zhiming Wang</a> &#183; <a href="https://github.com/zmwangx/ham-radio-test-prep" target="_blank">Source code</a></footer>
+</body>
+</html>
+
+{#- Local Variables: -#}
+{#- mode: jinja2 -#}
+{#- End: -#}
