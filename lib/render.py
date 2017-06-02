@@ -9,7 +9,7 @@ import parser
 HERE = os.path.dirname(os.path.realpath(__file__))
 ROOT = os.path.dirname(HERE)
 TEMPLATES_DIR = os.path.join(ROOT, 'templates')
-BUILD_DIR = os.path.join(ROOT, 'build')
+SITE_ROOT = os.path.join(ROOT, 'site')
 
 JINJA = jinja2.Environment(loader=jinja2.FileSystemLoader(TEMPLATES_DIR))
 JINJA.filters.update({
@@ -25,7 +25,7 @@ def render(objects):
 
 def main():
     objects = parser.parse(parser.gettext())
-    with open(os.path.join(BUILD_DIR, 'index.html'), 'w') as fp:
+    with open(os.path.join(SITE_ROOT, 'index.html'), 'w') as fp:
         fp.write(render(objects))
 
 if __name__ == '__main__':
