@@ -20,15 +20,17 @@
     .answer-b .title:hover ~ .choices .choice-b span,
     .answer-c .title:hover ~ .choices .choice-c span,
     .answer-d .title:hover ~ .choices .choice-d span,
-    .show-answer.answer-a .choice-a span,
-    .show-answer.answer-b .choice-b span,
-    .show-answer.answer-c .choice-c span,
-    .show-answer.answer-d .choice-d span
+    .show-answers .answer-a .choice-a span,
+    .show-answers .answer-b .choice-b span,
+    .show-answers .answer-c .choice-c span,
+    .show-answers .answer-d .choice-d span
     { background: #66ff66; }
     @media (max-width: 820px) {
       body { width: calc(100% - 20px); }
     }
   </style>
+  <script src="jquery-3.2.1.slim.min.js"></script>
+  <script src="interactive.js"></script>
 </head>
 <body>
   <h1>{{ title }}</h1>
