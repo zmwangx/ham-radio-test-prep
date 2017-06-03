@@ -13,7 +13,10 @@
     footer { font-size: 0.8em; color: #999; text-align: center; margin: 1em; }
     a { color: inherit; }
     .question { margin: 1em 0; }
-    .question .title { display: inline-block; font-weight: bold; cursor: help; }
+    .question .title { display: inline-block; font-weight: bold; cursor: pointer; }
+    .question .title { user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; }
+    .question.done { color: #777; }
+    .question.done .title:before { content: "\2714\a0"; color: #00cc00; }
     .choices { list-style-type: upper-alpha; padding: 0 0 0 1.5em; margin: 0.5em 0 0 0; }
     .answer-a .title:hover ~ .choices .choice-a span,
     .answer-b .title:hover ~ .choices .choice-b span,
@@ -24,6 +27,10 @@
     .show-answers .answer-c .choice-c span,
     .show-answers .answer-d .choice-d span
     { background: #66ff66; }
+    .done-show-titles .question.done .description,
+    .done-show-titles .question.done .choices
+    { display: none; }
+    .done-hide .question.done { display: none; }
     @media (max-width: 820px) {
       body { width: calc(100% - 20px); }
     }
@@ -31,11 +38,11 @@
   <script src="jquery-3.2.1.slim.min.js"></script>
   <script src="interactive.js"></script>
 </head>
-<body>
+<body class="done-show-titles">
   <h1>Amateur Radio Technician Class Question Pool (2014&ndash;2018)</h1>
   <h2 id="T1">T1 &mdash; FCC Rules, descriptions and definitions for the Amateur Radio Service, operator and station license responsibilities - [6 Exam Questions - 6 Groups]</h2>
   <h3 id="T1A">T1A &mdash; Amateur Radio Service: purpose and permissible use of the Amateur Radio Service; operator/primary station license grant; where FCC rules are codified; basis and purpose of FCC rules; meanings of basic terms used in FCC rules; interference; spectrum management</h3>
-  <div class="question answer-c">
+  <div id="T1A01" class="question answer-c">
     <div class="title">T1A01 [97.1]</div>
     <div class="description">Which of the following is a purpose of the Amateur Radio Service as stated in the FCC rules and regulations?</div>
     <ol class="choices">
@@ -45,7 +52,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T1A02" class="question answer-c">
     <div class="title">T1A02 [97.1]</div>
     <div class="description">Which agency regulates and enforces the rules for the Amateur Radio Service in the United States?</div>
     <ol class="choices">
@@ -55,7 +62,7 @@
       <li class="choice-d"><span>Homeland Security</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1A03" class="question answer-d">
     <div class="title">T1A03 </div>
     <div class="description">Which part of the FCC regulations contains the rules governing the Amateur Radio Service?</div>
     <ol class="choices">
@@ -65,7 +72,7 @@
       <li class="choice-d"><span>Part 97</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T1A04" class="question answer-c">
     <div class="title">T1A04 [97.3(a)(23)]</div>
     <div class="description">Which of the following meets the FCC definition of harmful interference?</div>
     <ol class="choices">
@@ -75,7 +82,7 @@
       <li class="choice-d"><span>Static from lightning storms</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1A05" class="question answer-a">
     <div class="title">T1A05 [97.1 (e)]</div>
     <div class="description">Which of the following is a purpose of the Amateur Radio Service rules and regulations as defined by the FCC?</div>
     <ol class="choices">
@@ -85,7 +92,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1A06" class="question answer-d">
     <div class="title">T1A06 [97.101 (d), 97.303 (o)(2)]</div>
     <div class="description">Which of the following services are protected from interference by amateur signals under all circumstances?</div>
     <ol class="choices">
@@ -95,7 +102,7 @@
       <li class="choice-d"><span>Radionavigation Service</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T1A07" class="question answer-c">
     <div class="title">T1A07 [97.3(a)(46)]</div>
     <div class="description">What is the FCC Part 97 definition of telemetry?</div>
     <ol class="choices">
@@ -105,7 +112,7 @@
       <li class="choice-d"><span>An information bulletin from a VEC</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T1A08" class="question answer-b">
     <div class="title">T1A08 [97.3(a)(22)]</div>
     <div class="description">Which of the following entities recommends transmit/receive channels and other parameters for auxiliary and repeater stations?</div>
     <ol class="choices">
@@ -115,7 +122,7 @@
       <li class="choice-d"><span>International Telecommunications Union</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T1A09" class="question answer-c">
     <div class="title">T1A09 [97.3(a)(22)]</div>
     <div class="description">Who selects a Frequency Coordinator?</div>
     <ol class="choices">
@@ -125,7 +132,7 @@
       <li class="choice-d"><span>FCC Regional Field Office</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1A10" class="question answer-a">
     <div class="title">T1A10 [97.3(a)(5)]</div>
     <div class="description">What is the FCC Part 97 definition of an amateur station?</div>
     <ol class="choices">
@@ -135,7 +142,7 @@
       <li class="choice-d"><span>Any radio station for hobby use</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T1A11" class="question answer-b">
     <div class="title">T1A11 [97.101 (d)]</div>
     <div class="description">When is willful interference to other amateur radio stations permitted?</div>
     <ol class="choices">
@@ -145,7 +152,7 @@
       <li class="choice-d"><span>At any time, amateurs are not protected from willful interference</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1A12" class="question answer-d">
     <div class="title">T1A12 </div>
     <div class="description">Which of the following is a permissible use of the Amateur Radio Service?</div>
     <ol class="choices">
@@ -155,7 +162,7 @@
       <li class="choice-d"><span>Allowing a person to conduct radio experiments and to communicate with other licensed hams around the world</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T1A13" class="question answer-c">
     <div class="title">T1A13 [97.3(a)(45)]</div>
     <div class="description">What is the FCC Part 97 definition of telecommand?</div>
     <ol class="choices">
@@ -165,7 +172,7 @@
       <li class="choice-d"><span>An instruction from a VEC</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1A14" class="question answer-a">
     <div class="title">T1A14 [97.303(d)]</div>
     <div class="description">What must you do if you are operating on the 23 cm band and learn that you are interfering with a radiolocation station outside the United States?</div>
     <ol class="choices">
@@ -176,7 +183,7 @@
     </ol>
   </div>
   <h3 id="T1B">T1B &mdash; Authorized frequencies: frequency allocations; ITU regions; emission modes; restricted sub-bands; spectrum sharing; transmissions near band edges</h3>
-  <div class="question answer-b">
+  <div id="T1B01" class="question answer-b">
     <div class="title">T1B01 </div>
     <div class="description">What is the ITU?</div>
     <ol class="choices">
@@ -186,7 +193,7 @@
       <li class="choice-d"><span>A department of the FCC</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1B02" class="question answer-a">
     <div class="title">T1B02 [97.301]</div>
     <div class="description">Why are the frequency assignments for some U.S. Territories different from those in the 50 U.S. States?</div>
     <ol class="choices">
@@ -196,7 +203,7 @@
       <li class="choice-d"><span>Any territory that was in existence before the ratification of the Communications Act of 1934 is exempt from FCC frequency regulations</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T1B03" class="question answer-b">
     <div class="title">T1B03 [97.301(a)]</div>
     <div class="description">Which frequency is within the 6 meter band?</div>
     <ol class="choices">
@@ -206,7 +213,7 @@
       <li class="choice-d"><span>222.15 MHz</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1B04" class="question answer-a">
     <div class="title">T1B04 [97.301(a)]</div>
     <div class="description">Which amateur band are you using when your station is transmitting on 146.52 MHz?</div>
     <ol class="choices">
@@ -216,7 +223,7 @@
       <li class="choice-d"><span>6 meter band</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T1B05" class="question answer-c">
     <div class="title">T1B05 [97.301(a)]</div>
     <div class="description">Which 70 cm frequency is authorized to a Technician Class license holder operating in ITU Region 2?</div>
     <ol class="choices">
@@ -226,7 +233,7 @@
       <li class="choice-d"><span>222.520 MHz</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T1B06" class="question answer-b">
     <div class="title">T1B06 [97.301(a)]</div>
     <div class="description">Which 23 cm frequency is authorized to a Technician Class licensee?</div>
     <ol class="choices">
@@ -236,7 +243,7 @@
       <li class="choice-d"><span>146.52 MHz</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1B07" class="question answer-d">
     <div class="title">T1B07 [97.301(a)]</div>
     <div class="description">What amateur band are you using if you are transmitting on 223.50 MHz?</div>
     <ol class="choices">
@@ -246,7 +253,7 @@
       <li class="choice-d"><span>1.25 meter band</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1B08" class="question answer-a">
     <div class="title">T1B08 [97.303]</div>
     <div class="description">Which of the following is a result of the fact that the amateur service is secondary in some portions of the 70 cm band?</div>
     <ol class="choices">
@@ -256,7 +263,7 @@
       <li class="choice-d"><span>Digital transmissions are not permitted on 70 cm</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1B09" class="question answer-d">
     <div class="title">T1B09 [97.101(a), 97.301(a-e)]</div>
     <div class="description">Why should you not set your transmit frequency to be exactly at the edge of an amateur band or sub-band?</div>
     <ol class="choices">
@@ -266,7 +273,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T1B10" class="question answer-c">
     <div class="title">T1B10 [97.301(e), 97.305(c)]</div>
     <div class="description">Which of the bands above 30 MHz that are available to Technician Class operators have mode-restricted sub-bands?</div>
     <ol class="choices">
@@ -276,7 +283,7 @@
       <li class="choice-d"><span>The 2 meter and 70 cm bands</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1B11" class="question answer-a">
     <div class="title">T1B11 [97.301(a), 97.305 (a)(c)]</div>
     <div class="description">What emission modes are permitted in the mode-restricted sub-bands at 50.0 to 50.1 MHz and 144.0 to 144.1 MHz?</div>
     <ol class="choices">
@@ -286,7 +293,7 @@
       <li class="choice-d"><span>CW and SSB</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T1B12" class="question answer-b">
     <div class="title">T1B12 [97.301]</div>
     <div class="description">Why are frequency assignments for U.S. stations operating maritime mobile not the same everywhere in the world?</div>
     <ol class="choices">
@@ -296,7 +303,7 @@
       <li class="choice-d"><span>Amateur frequency assignments are different in each of the 90 ITU zones</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T1B13" class="question answer-b">
     <div class="title">T1B13 [97.305(c)]</div>
     <div class="description">Which emission may be used between 219 and 220 MHz?</div>
     <ol class="choices">
@@ -307,7 +314,7 @@
     </ol>
   </div>
   <h3 id="T1C">T1C &mdash; Operator licensing: operator classes; sequential, special event, and vanity call sign systems; international communications; reciprocal operation; station license and licensee; places where the amateur service is regulated by the FCC; name and address on FCC license database; license term; renewal; grace period</h3>
-  <div class="question answer-c">
+  <div id="T1C01" class="question answer-c">
     <div class="title">T1C01 [97.3(a)(11)(iii)]</div>
     <div class="description">Which type of call sign has a single letter in both its prefix and suffix?</div>
     <ol class="choices">
@@ -317,7 +324,7 @@
       <li class="choice-d"><span>In-memoriam</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T1C02" class="question answer-b">
     <div class="title">T1C02 </div>
     <div class="description">Which of the following is a valid US amateur radio station call sign?</div>
     <ol class="choices">
@@ -327,7 +334,7 @@
       <li class="choice-d"><span>11Q1176</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1C03" class="question answer-a">
     <div class="title">T1C03 [97.117]</div>
     <div class="description">What types of international communications are permitted by an FCC-licensed amateur station?</div>
     <ol class="choices">
@@ -337,7 +344,7 @@
       <li class="choice-d"><span>Any communications that would be permitted by an international broadcast station</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1C04" class="question answer-a">
     <div class="title">T1C04 [97.107]</div>
     <div class="description">When are you allowed to operate your amateur station in a foreign country?</div>
     <ol class="choices">
@@ -347,7 +354,7 @@
       <li class="choice-d"><span>When you are communicating with non-licensed individuals in another country</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1C05" class="question answer-a">
     <div class="title">T1C05 </div>
     <div class="description">Which of the following is a vanity call sign which a technician class amateur operator might select if available?</div>
     <ol class="choices">
@@ -357,7 +364,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1C06" class="question answer-d">
     <div class="title">T1C06 [97.5(a)(2)]</div>
     <div class="description">From which of the following locations may an FCC-licensed amateur station transmit, in addition to places where the FCC regulates communications?</div>
     <ol class="choices">
@@ -367,7 +374,7 @@
       <li class="choice-d"><span>From any vessel or craft located in international waters and documented or registered in the United States</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T1C07" class="question answer-b">
     <div class="title">T1C07 [97.23]</div>
     <div class="description">What may result when correspondence from the FCC is returned as undeliverable because the grantee failed to provide the correct mailing address?</div>
     <ol class="choices">
@@ -377,7 +384,7 @@
       <li class="choice-d"><span>A reduction of one rank in operator class</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T1C08" class="question answer-c">
     <div class="title">T1C08 [97.25]</div>
     <div class="description">What is the normal term for an FCC-issued primary station/operator amateur radio license grant?</div>
     <ol class="choices">
@@ -387,7 +394,7 @@
       <li class="choice-d"><span>Twenty years</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1C09" class="question answer-a">
     <div class="title">T1C09 [97.21(a)(b)]</div>
     <div class="description">What is the grace period following the expiration of an amateur license within which the license may be renewed?</div>
     <ol class="choices">
@@ -397,7 +404,7 @@
       <li class="choice-d"><span>Ten years</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T1C10" class="question answer-c">
     <div class="title">T1C10 [97.5a]</div>
     <div class="description">How soon after passing the examination for your first amateur radio license may you operate a transmitter on an amateur service frequency?</div>
     <ol class="choices">
@@ -407,7 +414,7 @@
       <li class="choice-d"><span>You must wait until you receive your license in the mail from the FCC</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1C11" class="question answer-a">
     <div class="title">T1C11 [97.21(b)]</div>
     <div class="description">If your license has expired and is still within the allowable grace period, may you continue to operate a transmitter on amateur service frequencies?</div>
     <ol class="choices">
@@ -417,7 +424,7 @@
       <li class="choice-d"><span>Yes, for up to two years</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1C12" class="question answer-d">
     <div class="title">T1C12 [97.19]</div>
     <div class="description">Who may select a desired call sign under the vanity call sign rules?</div>
     <ol class="choices">
@@ -427,7 +434,7 @@
       <li class="choice-d"><span>Any licensed amateur</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1C13" class="question answer-d">
     <div class="title">T1C13 [97.9(a), 97.17(a)]</div>
     <div class="description">For which licenses classes are new licenses currently available from the FCC?</div>
     <ol class="choices">
@@ -437,7 +444,7 @@
       <li class="choice-d"><span>Technician, General, Amateur Extra</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1C14" class="question answer-d">
     <div class="title">T1C14 [97.21(a) (1)]</div>
     <div class="description">Who may select a vanity call sign for a club station?</div>
     <ol class="choices">
@@ -448,7 +455,7 @@
     </ol>
   </div>
   <h3 id="T1D">T1D &mdash; Authorized and prohibited transmission: communications with other countries; music; exchange of information with other services; indecent language; compensation for use of station; retransmission of other amateur signals; codes and ciphers; sale of equipment; unidentified transmissions; broadcasting</h3>
-  <div class="question answer-a">
+  <div id="T1D01" class="question answer-a">
     <div class="title">T1D01 [97.111(a)(1)]</div>
     <div class="description">With which countries are FCC-licensed amateur stations prohibited from exchanging communications?</div>
     <ol class="choices">
@@ -458,7 +465,7 @@
       <li class="choice-d"><span>Any country in violation of the War Powers Act of 1934</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1D02" class="question answer-a">
     <div class="title">T1D02 [97.111(a)(5)]</div>
     <div class="description">On which of the following occasions may an FCC-licensed amateur station exchange messages with a U.S. military station?</div>
     <ol class="choices">
@@ -468,7 +475,7 @@
       <li class="choice-d"><span>During a propagation test</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T1D03" class="question answer-c">
     <div class="title">T1D03 [97.211(b), 97.215(b)]</div>
     <div class="description">When is the transmission of codes or ciphers that hide the meaning of a message allowed by an amateur station?</div>
     <ol class="choices">
@@ -478,7 +485,7 @@
       <li class="choice-d"><span>Only when frequencies above 1280 MHz are used</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1D04" class="question answer-a">
     <div class="title">T1D04 [97.113(a)(4), 97.113(c)]</div>
     <div class="description">What is the only time an amateur station is authorized to transmit music?</div>
     <ol class="choices">
@@ -488,7 +495,7 @@
       <li class="choice-d"><span>When the music is transmitted above 1280 MHz</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1D05" class="question answer-a">
     <div class="title">T1D05 [97.113(a)(3)(ii)]</div>
     <div class="description">When may amateur radio operators use their stations to notify other amateurs of the availability of equipment for sale or trade?</div>
     <ol class="choices">
@@ -498,7 +505,7 @@
       <li class="choice-d"><span>When the equipment is not the personal property of either the station licensee or the control operator or their close relatives</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T1D06" class="question answer-b">
     <div class="title">T1D06 [97.113(a)(4)]</div>
     <div class="description">What, if any, are the restrictions concerning transmission of language that may be considered indecent or obscene?</div>
     <ol class="choices">
@@ -508,7 +515,7 @@
       <li class="choice-d"><span>There is no such prohibition</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T1D07" class="question answer-b">
     <div class="title">T1D07 [97.113(d)]</div>
     <div class="description">What types of amateur stations can automatically retransmit the signals of other amateur stations?</div>
     <ol class="choices">
@@ -518,7 +525,7 @@
       <li class="choice-d"><span>Earth, repeater, or space stations</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T1D08" class="question answer-b">
     <div class="title">T1D08 [97.113(a)(3)(iii)]</div>
     <div class="description">In which of the following circumstances may the control operator of an amateur station receive compensation for operating the station?</div>
     <ol class="choices">
@@ -528,7 +535,7 @@
       <li class="choice-d"><span>When notifying other amateur operators of the availability for sale or trade of apparatus</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1D09" class="question answer-a">
     <div class="title">T1D09 [97.113(5)(b)]</div>
     <div class="description">Under which of the following circumstances are amateur stations authorized to transmit signals related to broadcasting, program production, or news gathering, assuming no other means is available?</div>
     <ol class="choices">
@@ -538,7 +545,7 @@
       <li class="choice-d"><span>Only when using amateur repeaters linked to the Internet</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1D10" class="question answer-d">
     <div class="title">T1D10 [97.3(a)(10)]</div>
     <div class="description">What is the meaning of the term “broadcasting” in the FCC rules for the amateur services?</div>
     <ol class="choices">
@@ -548,7 +555,7 @@
       <li class="choice-d"><span>Transmissions intended for reception by the general public</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1D11" class="question answer-d">
     <div class="title">T1D11 [97.119(a)]</div>
     <div class="description">When may an amateur station transmit without identifying?</div>
     <ol class="choices">
@@ -558,7 +565,7 @@
       <li class="choice-d"><span>When transmitting signals to control a model craft</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T1D12" class="question answer-b">
     <div class="title">T1D12 [97.111(b)(4,5,6)</div>
     <div class="description">Under which of the following circumstances may an amateur radio station engage in broadcasting?</div>
     <ol class="choices">
@@ -569,7 +576,7 @@
     </ol>
   </div>
   <h3 id="T1E">T1E &mdash; Control operator and control types: control operator required; eligibility; designation of control operator; privileges and duties; control point; local, automatic and remote control; location of control operator</h3>
-  <div class="question answer-d">
+  <div id="T1E01" class="question answer-d">
     <div class="title">T1E01 [97.7(a)]</div>
     <div class="description">When is an amateur station permitted to transmit without a control operator?</div>
     <ol class="choices">
@@ -579,7 +586,7 @@
       <li class="choice-d"><span>Never</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1E02" class="question answer-d">
     <div class="title">T1E02 [97.7(a)]</div>
     <div class="description">Who may a station licensee designate to be the control operator of an amateur station?</div>
     <ol class="choices">
@@ -589,7 +596,7 @@
       <li class="choice-d"><span>Only a person for whom an amateur operator/primary station license grant appears in the FCC database or who is authorized for alien reciprocal operation</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1E03" class="question answer-a">
     <div class="title">T1E03 [97.103(b)]</div>
     <div class="description">Who must designate the station control operator?</div>
     <ol class="choices">
@@ -599,7 +606,7 @@
       <li class="choice-d"><span>The ITU</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1E04" class="question answer-d">
     <div class="title">T1E04 [97.103(b)]</div>
     <div class="description">What determines the transmitting privileges of an amateur station?</div>
     <ol class="choices">
@@ -609,7 +616,7 @@
       <li class="choice-d"><span>The class of operator license held by the control operator</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T1E05" class="question answer-c">
     <div class="title">T1E05 [97.3(a)(14)]</div>
     <div class="description">What is an amateur station control point?</div>
     <ol class="choices">
@@ -619,7 +626,7 @@
       <li class="choice-d"><span>The mailing address of the station licensee</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1E06" class="question answer-a">
     <div class="title">T1E06 [97.109(d)]</div>
     <div class="description">Under what type of control do APRS network digipeaters operate?</div>
     <ol class="choices">
@@ -629,7 +636,7 @@
       <li class="choice-d"><span>Manual</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1E07" class="question answer-d">
     <div class="title">T1E07 [97.103(a)]</div>
     <div class="description">When the control operator is not the station licensee, who is responsible for the proper operation of the station?</div>
     <ol class="choices">
@@ -639,7 +646,7 @@
       <li class="choice-d"><span>The control operator and the station licensee are equally responsible</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1E08" class="question answer-a">
     <div class="title">T1E08 [97.3(a)(6), 97.205(d)]</div>
     <div class="description">Which of the following is an example of automatic control?</div>
     <ol class="choices">
@@ -649,7 +656,7 @@
       <li class="choice-d"><span>Using a computer or other device to automatically identify</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1E09" class="question answer-d">
     <div class="title">T1E09 [97.109(b)]</div>
     <div class="description">What type of control is being used when the control operator is at the control point?</div>
     <ol class="choices">
@@ -659,7 +666,7 @@
       <li class="choice-d"><span>Local control</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T1E10" class="question answer-b">
     <div class="title">T1E10 [97.3(a)(39)]</div>
     <div class="description">Which of the following is an example of remote control as defined in Part 97?</div>
     <ol class="choices">
@@ -669,7 +676,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1E11" class="question answer-d">
     <div class="title">T1E11 [97.103(a)]</div>
     <div class="description">Who does the FCC presume to be the control operator of an amateur station, unless documentation to the contrary is in the station records?</div>
     <ol class="choices">
@@ -679,7 +686,7 @@
       <li class="choice-d"><span>The station licensee</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1E12" class="question answer-a">
     <div class="title">T1E12 [97.119(e)]</div>
     <div class="description">When, under normal circumstances, may a Technician Class licensee be the control operator of a station operating in an exclusive Extra Class operator segment of the amateur bands?</div>
     <ol class="choices">
@@ -690,7 +697,7 @@
     </ol>
   </div>
   <h3 id="T1F">T1F &mdash; Station identification; repeaters; third party communications; club stations; FCC inspection</h3>
-  <div class="question answer-a">
+  <div id="T1F01" class="question answer-a">
     <div class="title">T1F01 </div>
     <div class="description">What type of identification is being used when identifying a station on the air as Race Headquarters?</div>
     <ol class="choices">
@@ -700,7 +707,7 @@
       <li class="choice-d"><span>Broadcast station</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T1F02" class="question answer-c">
     <div class="title">T1F02 [97.119 (a)]</div>
     <div class="description">When using tactical identifiers such as “Race Headquarters” during a community service net operation, how often must your station transmit the station’s FCC-assigned call sign?</div>
     <ol class="choices">
@@ -710,7 +717,7 @@
       <li class="choice-d"><span>At the end of every transmission</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1F03" class="question answer-d">
     <div class="title">T1F03 [97.119(a)]</div>
     <div class="description">When is an amateur station required to transmit its assigned call sign?</div>
     <ol class="choices">
@@ -720,7 +727,7 @@
       <li class="choice-d"><span>At least every 10 minutes during and at the end of a communication</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T1F04" class="question answer-c">
     <div class="title">T1F04 [97.119(b)(2)]</div>
     <div class="description">Which of the following is an acceptable language to use for station identification when operating in a phone sub-band?</div>
     <ol class="choices">
@@ -730,7 +737,7 @@
       <li class="choice-d"><span>English, French, or Spanish</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T1F05" class="question answer-b">
     <div class="title">T1F05 [97.119(b)(2)]</div>
     <div class="description">What method of call sign identification is required for a station transmitting phone signals?</div>
     <ol class="choices">
@@ -740,7 +747,7 @@
       <li class="choice-d"><span>Send the call sign using only phone emission</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1F06" class="question answer-d">
     <div class="title">T1F06 [97.119(c)]</div>
     <div class="description">Which of the following formats of a self-assigned indicator is acceptable when identifying using a phone transmission?</div>
     <ol class="choices">
@@ -750,7 +757,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T1F07" class="question answer-b">
     <div class="title">T1F07 [97.115(a)(2)]</div>
     <div class="description">Which of the following restrictions apply when a non-licensed person is allowed to speak to a foreign station using a station under the control of a Technician Class control operator?</div>
     <ol class="choices">
@@ -760,7 +767,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T1F08" class="question answer-d">
     <div class="title">T1F08 [97.119(f)]</div>
     <div class="description">Which indicator is required by the FCC to be transmitted after a station call sign?</div>
     <ol class="choices">
@@ -770,7 +777,7 @@
       <li class="choice-d"><span>/KT, /AE or /AG when using new license privileges earned by CSCE while waiting for an upgrade to a previously issued license to appear in the FCC license database</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T1F09" class="question answer-c">
     <div class="title">T1F09 [97.3(a)(40)]</div>
     <div class="description">What type of amateur station simultaneously retransmits the signal of another amateur station on a different channel or channels?</div>
     <ol class="choices">
@@ -780,7 +787,7 @@
       <li class="choice-d"><span>Message forwarding station</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1F10" class="question answer-a">
     <div class="title">T1F10 [97.205(g)]</div>
     <div class="description">Who is accountable should a repeater inadvertently retransmit communications that violate the FCC rules?</div>
     <ol class="choices">
@@ -790,7 +797,7 @@
       <li class="choice-d"><span>Both the originating station and the repeater owner</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T1F11" class="question answer-a">
     <div class="title">T1F11 [97.115(a)]</div>
     <div class="description">To which foreign stations do the FCC rules authorize the transmission of non-emergency third party communications?</div>
     <ol class="choices">
@@ -800,7 +807,7 @@
       <li class="choice-d"><span>Those in ITU Region 3 only</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T1F12" class="question answer-b">
     <div class="title">T1F12 [97.5(b)(2)]</div>
     <div class="description">How many persons are required to be members of a club for a club station license to be issued by the FCC?</div>
     <ol class="choices">
@@ -810,7 +817,7 @@
       <li class="choice-d"><span>At least 2</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T1F13" class="question answer-b">
     <div class="title">T1F13 [97.103(c)]</div>
     <div class="description">When must the station licensee make the station and its records available for FCC inspection?</div>
     <ol class="choices">
@@ -822,7 +829,7 @@
   </div>
   <h2 id="T2">T2 &mdash; Operating Procedures [3 Exam Questions - 3 Groups]</h2>
   <h3 id="T2A">T2A &mdash; Station operation: choosing an operating frequency; calling another station; test transmissions; procedural signs; use of minimum power; choosing an operating frequency; band plans; calling frequencies; repeater offsets</h3>
-  <div class="question answer-b">
+  <div id="T2A01" class="question answer-b">
     <div class="title">T2A01 </div>
     <div class="description">What is the most common repeater frequency offset in the 2 meter band?</div>
     <ol class="choices">
@@ -832,7 +839,7 @@
       <li class="choice-d"><span>Only plus 600 kHz</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T2A02" class="question answer-d">
     <div class="title">T2A02 </div>
     <div class="description">What is the national calling frequency for FM simplex operations in the 70 cm band?</div>
     <ol class="choices">
@@ -842,7 +849,7 @@
       <li class="choice-d"><span>446.000 MHz</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T2A03" class="question answer-a">
     <div class="title">T2A03 </div>
     <div class="description">What is a common repeater frequency offset in the 70 cm band?</div>
     <ol class="choices">
@@ -852,7 +859,7 @@
       <li class="choice-d"><span>Plus 600 kHz</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T2A04" class="question answer-b">
     <div class="title">T2A04 </div>
     <div class="description">What is an appropriate way to call another station on a repeater if you know the other station's call sign?</div>
     <ol class="choices">
@@ -862,7 +869,7 @@
       <li class="choice-d"><span>Wait for the station to call CQ then answer it</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T2A05" class="question answer-c">
     <div class="title">T2A05 </div>
     <div class="description">How should you respond to a station calling CQ?</div>
     <ol class="choices">
@@ -872,7 +879,7 @@
       <li class="choice-d"><span>Transmit a signal report followed by your call sign</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T2A06" class="question answer-a">
     <div class="title">T2A06 </div>
     <div class="description">What must an amateur operator do when making on-air transmissions to test equipment or antennas?</div>
     <ol class="choices">
@@ -882,7 +889,7 @@
       <li class="choice-d"><span>State the purpose of the test during the test procedure</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T2A07" class="question answer-d">
     <div class="title">T2A07 </div>
     <div class="description">Which of the following is true when making a test transmission?</div>
     <ol class="choices">
@@ -892,7 +899,7 @@
       <li class="choice-d"><span>Station identification is required at least every ten minutes during the test and at the end of the test</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T2A08" class="question answer-d">
     <div class="title">T2A08 </div>
     <div class="description">What is the meaning of the procedural signal “CQ”?</div>
     <ol class="choices">
@@ -902,7 +909,7 @@
       <li class="choice-d"><span>Calling any station</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T2A09" class="question answer-b">
     <div class="title">T2A09 </div>
     <div class="description">What brief statement is often transmitted in place of “CQ” to indicate that you are listening on a repeater?</div>
     <ol class="choices">
@@ -912,7 +919,7 @@
       <li class="choice-d"><span>The letters “QSY” followed by your call sign</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T2A10" class="question answer-a">
     <div class="title">T2A10 </div>
     <div class="description">What is a band plan, beyond the privileges established by the FCC?</div>
     <ol class="choices">
@@ -922,7 +929,7 @@
       <li class="choice-d"><span>A plan devised by a club to indicate frequency band usage</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T2A11" class="question answer-d">
     <div class="title">T2A11 [97.313(a)]</div>
     <div class="description">Which of the following is an FCC rule regarding power levels used in the amateur bands, under normal, non-distress circumstances?</div>
     <ol class="choices">
@@ -932,7 +939,7 @@
       <li class="choice-d"><span>While not exceeding the maximum power permitted on a given band, use the minimum power necessary to carry out the desired communication</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T2A12" class="question answer-d">
     <div class="title">T2A12 </div>
     <div class="description">Which of the following is a guideline to use when choosing an operating frequency for calling CQ?</div>
     <ol class="choices">
@@ -943,7 +950,7 @@
     </ol>
   </div>
   <h3 id="T2B">T2B &mdash; VHF/UHF operating practices: SSB phone; FM repeater; simplex; splits and shifts; CTCSS; DTMF; tone squelch; carrier squelch; phonetics; operational problem resolution; Q signals</h3>
-  <div class="question answer-c">
+  <div id="T2B01" class="question answer-c">
     <div class="title">T2B01 </div>
     <div class="description">What is the term used to describe an amateur station that is transmitting and receiving on the same frequency?</div>
     <ol class="choices">
@@ -953,7 +960,7 @@
       <li class="choice-d"><span>Multiplex communication</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T2B02" class="question answer-d">
     <div class="title">T2B02 </div>
     <div class="description">What is the term used to describe the use of a sub-audible tone transmitted with normal voice audio to open the squelch of a receiver?</div>
     <ol class="choices">
@@ -963,7 +970,7 @@
       <li class="choice-d"><span>CTCSS</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T2B03" class="question answer-b">
     <div class="title">T2B03 </div>
     <div class="description">Which of the following describes the muting of receiver audio controlled solely by the presence or absence of an RF signal?</div>
     <ol class="choices">
@@ -973,7 +980,7 @@
       <li class="choice-d"><span>Modulated carrier</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T2B04" class="question answer-d">
     <div class="title">T2B04 </div>
     <div class="description">Which of the following common problems might cause you to be able to hear but not access a repeater even when transmitting with the proper offset?</div>
     <ol class="choices">
@@ -983,7 +990,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T2B05" class="question answer-c">
     <div class="title">T2B05 </div>
     <div class="description">What determines the amount of deviation of an FM (as opposed to PM) signal?</div>
     <ol class="choices">
@@ -993,7 +1000,7 @@
       <li class="choice-d"><span>The relative phase of the modulating signal and the carrier</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T2B06" class="question answer-a">
     <div class="title">T2B06 </div>
     <div class="description">What happens when the deviation of an FM transmitter is increased?</div>
     <ol class="choices">
@@ -1003,7 +1010,7 @@
       <li class="choice-d"><span>Asymmetric modulation occurs</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T2B07" class="question answer-a">
     <div class="title">T2B07 </div>
     <div class="description">What could cause your FM signal to interfere with stations on nearby frequencies?</div>
     <ol class="choices">
@@ -1013,7 +1020,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T2B08" class="question answer-a">
     <div class="title">T2B08 </div>
     <div class="description">Which of the following applies when two stations transmitting on the same frequency interfere with each other?</div>
     <ol class="choices">
@@ -1023,7 +1030,7 @@
       <li class="choice-d"><span>The station which has the weakest signal has priority on the frequency</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T2B09" class="question answer-a">
     <div class="title">T2B09 [97.119(b)(2)]</div>
     <div class="description">Which of the following methods is encouraged by the FCC when identifying your station when using phone?</div>
     <ol class="choices">
@@ -1033,7 +1040,7 @@
       <li class="choice-d"><span>Increase your signal to full power when identifying</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T2B10" class="question answer-a">
     <div class="title">T2B10 </div>
     <div class="description">Which Q signal indicates that you are receiving interference from other stations?</div>
     <ol class="choices">
@@ -1043,7 +1050,7 @@
       <li class="choice-d"><span>QSB</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T2B11" class="question answer-b">
     <div class="title">T2B11 </div>
     <div class="description">Which Q signal indicates that you are changing frequency?</div>
     <ol class="choices">
@@ -1053,7 +1060,7 @@
       <li class="choice-d"><span>QRZ</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T2B12" class="question answer-a">
     <div class="title">T2B12 </div>
     <div class="description">Under what circumstances should you consider communicating via simplex rather than a repeater?</div>
     <ol class="choices">
@@ -1063,7 +1070,7 @@
       <li class="choice-d"><span>Only if you have simplex modulation capability</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T2B13" class="question answer-c">
     <div class="title">T2B13 </div>
     <div class="description">Which of the following is true of the use of SSB phone in amateur bands above 50 MHz?</div>
     <ol class="choices">
@@ -1074,7 +1081,7 @@
     </ol>
   </div>
   <h3 id="T2C">T2C &mdash; Public service: emergency and non-emergency operations; applicability of FCC rules; RACES and ARES; net and traffic procedures; emergency restrictions</h3>
-  <div class="question answer-d">
+  <div id="T2C01" class="question answer-d">
     <div class="title">T2C01 [97.103(a)]</div>
     <div class="description">When do the FCC rules NOT apply to the operation of an amateur station?</div>
     <ol class="choices">
@@ -1084,7 +1091,7 @@
       <li class="choice-d"><span>Never, FCC rules always apply</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T2C02" class="question answer-c">
     <div class="title">T2C02 </div>
     <div class="description">What is one way to recharge a 12-volt lead-acid station battery if the commercial power is out?</div>
     <ol class="choices">
@@ -1094,7 +1101,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T2C03" class="question answer-c">
     <div class="title">T2C03 </div>
     <div class="description">What should be done to insure that voice message traffic containing proper names and unusual words are copied correctly by the receiving station?</div>
     <ol class="choices">
@@ -1104,7 +1111,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T2C04" class="question answer-d">
     <div class="title">T2C04 </div>
     <div class="description">What do RACES and ARES have in common?</div>
     <ol class="choices">
@@ -1114,7 +1121,7 @@
       <li class="choice-d"><span>Both organizations may provide communications during emergencies</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T2C05" class="question answer-d">
     <div class="title">T2C05 [97.3(a)(38), 97.407]</div>
     <div class="description">Which of the following describes the Radio Amateur Civil Emergency Service (RACES)?</div>
     <ol class="choices">
@@ -1124,7 +1131,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T2C06" class="question answer-c">
     <div class="title">T2C06 </div>
     <div class="description">Which of the following is an accepted practice to get the immediate attention of a net control station when reporting an emergency?</div>
     <ol class="choices">
@@ -1134,7 +1141,7 @@
       <li class="choice-d"><span>Play a pre-recorded emergency alert tone followed by your call sign</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T2C07" class="question answer-c">
     <div class="title">T2C07 </div>
     <div class="description">Which of the following is an accepted practice for an amateur operator who has checked into an emergency traffic net?</div>
     <ol class="choices">
@@ -1144,7 +1151,7 @@
       <li class="choice-d"><span>All of the choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T2C08" class="question answer-a">
     <div class="title">T2C08 </div>
     <div class="description">Which of the following is a characteristic of good emergency traffic handling?</div>
     <ol class="choices">
@@ -1154,7 +1161,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T2C09" class="question answer-d">
     <div class="title">T2C09 </div>
     <div class="description">Are amateur station control operators ever permitted to operate outside the frequency privileges of their license class?</div>
     <ol class="choices">
@@ -1164,7 +1171,7 @@
       <li class="choice-d"><span>Yes, but only if necessary in situations involving the immediate safety of human life or protection of property</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T2C10" class="question answer-d">
     <div class="title">T2C10 </div>
     <div class="description">What is the preamble in a formal traffic message?</div>
     <ol class="choices">
@@ -1174,7 +1181,7 @@
       <li class="choice-d"><span>The information needed to track the message as it passes through the amateur radio traffic handling system</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T2C11" class="question answer-a">
     <div class="title">T2C11 </div>
     <div class="description">What is meant by the term “check” in reference to a formal traffic message?</div>
     <ol class="choices">
@@ -1184,7 +1191,7 @@
       <li class="choice-d"><span>The check is a box on the message form that tells you the message was received</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T2C12" class="question answer-a">
     <div class="title">T2C12 </div>
     <div class="description">What is the Amateur Radio Emergency Service (ARES)?</div>
     <ol class="choices">
@@ -1196,7 +1203,7 @@
   </div>
   <h2 id="T3">T3 &mdash; Radio wave characteristics: properties of radio waves; propagation modes - [3 Exam Questions - 3 Groups]</h2>
   <h3 id="T3A">T3A &mdash; Radio wave characteristics: how a radio signal travels; fading; multipath; wavelength vs. penetration; antenna orientation</h3>
-  <div class="question answer-d">
+  <div id="T3A01" class="question answer-d">
     <div class="title">T3A01 </div>
     <div class="description">What should you do if another operator reports that your station’s 2 meter signals were strong just a moment ago, but now they are weak or distorted?</div>
     <ol class="choices">
@@ -1206,7 +1213,7 @@
       <li class="choice-d"><span>Try moving a few feet or changing the direction of your antenna if possible, as reflections may be causing multi-path distortion</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T3A02" class="question answer-b">
     <div class="title">T3A02 </div>
     <div class="description">Why are UHF signals often more effective from inside buildings than VHF signals?</div>
     <ol class="choices">
@@ -1216,7 +1223,7 @@
       <li class="choice-d"><span>UHF antennas are more efficient than VHF antennas</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T3A03" class="question answer-c">
     <div class="title">T3A03 </div>
     <div class="description">What antenna polarization is normally used for long-distance weak-signal CW and SSB contacts using the VHF and UHF bands?</div>
     <ol class="choices">
@@ -1226,7 +1233,7 @@
       <li class="choice-d"><span>Vertical</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T3A04" class="question answer-b">
     <div class="title">T3A04 </div>
     <div class="description">What can happen if the antennas at opposite ends of a VHF or UHF line of sight radio link are not using the same polarization?</div>
     <ol class="choices">
@@ -1236,7 +1243,7 @@
       <li class="choice-d"><span>Nothing significant will happen</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T3A05" class="question answer-b">
     <div class="title">T3A05 </div>
     <div class="description">When using a directional antenna, how might your station be able to access a distant repeater if buildings or obstructions are blocking the direct line of sight path?</div>
     <ol class="choices">
@@ -1246,7 +1253,7 @@
       <li class="choice-d"><span>Increase the antenna SWR</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T3A06" class="question answer-b">
     <div class="title">T3A06 </div>
     <div class="description">What term is commonly used to describe the rapid fluttering sound sometimes heard from mobile stations that are moving while transmitting?</div>
     <ol class="choices">
@@ -1256,7 +1263,7 @@
       <li class="choice-d"><span>Pulsing</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T3A07" class="question answer-a">
     <div class="title">T3A07 </div>
     <div class="description">What type of wave carries radio signals between transmitting and receiving stations?</div>
     <ol class="choices">
@@ -1266,7 +1273,7 @@
       <li class="choice-d"><span>Magnetostrictive</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T3A08" class="question answer-c">
     <div class="title">T3A08 </div>
     <div class="description">Which of the following is a likely cause of irregular fading of signals received by ionospheric reflection?</div>
     <ol class="choices">
@@ -1276,7 +1283,7 @@
       <li class="choice-d"><span>Intermodulation distortion</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T3A09" class="question answer-b">
     <div class="title">T3A09 </div>
     <div class="description">Which of the following results from the fact that skip signals refracted from the ionosphere are elliptically polarized?</div>
     <ol class="choices">
@@ -1286,7 +1293,7 @@
       <li class="choice-d"><span>Both the transmitting and receiving antennas must be of the same polarization</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T3A10" class="question answer-d">
     <div class="title">T3A10 </div>
     <div class="description">What may occur if data signals propagate over multiple paths?</div>
     <ol class="choices">
@@ -1296,7 +1303,7 @@
       <li class="choice-d"><span>Error rates are likely to increase</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T3A11" class="question answer-c">
     <div class="title">T3A11 </div>
     <div class="description">Which part of the atmosphere enables the propagation of radio signals around the world?</div>
     <ol class="choices">
@@ -1307,7 +1314,7 @@
     </ol>
   </div>
   <h3 id="T3B">T3B &mdash; Radio and electromagnetic wave properties: the electromagnetic spectrum; wavelength vs. frequency; velocity of electromagnetic waves; calculating wavelength</h3>
-  <div class="question answer-c">
+  <div id="T3B01" class="question answer-c">
     <div class="title">T3B01 </div>
     <div class="description">What is the name for the distance a radio wave travels during one complete cycle?</div>
     <ol class="choices">
@@ -1317,7 +1324,7 @@
       <li class="choice-d"><span>Wave spread</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T3B02" class="question answer-a">
     <div class="title">T3B02 </div>
     <div class="description">What property of a radio wave is used to describe its polarization?</div>
     <ol class="choices">
@@ -1327,7 +1334,7 @@
       <li class="choice-d"><span>The ratio of the velocity to the wavelength</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T3B03" class="question answer-c">
     <div class="title">T3B03 </div>
     <div class="description">What are the two components of a radio wave?</div>
     <ol class="choices">
@@ -1337,7 +1344,7 @@
       <li class="choice-d"><span>Ionizing and non-ionizing radiation</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T3B04" class="question answer-a">
     <div class="title">T3B04 </div>
     <div class="description">How fast does a radio wave travel through free space?</div>
     <ol class="choices">
@@ -1347,7 +1354,7 @@
       <li class="choice-d"><span>Its speed increases as the frequency increases</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T3B05" class="question answer-b">
     <div class="title">T3B05 </div>
     <div class="description">How does the wavelength of a radio wave relate to its frequency?</div>
     <ol class="choices">
@@ -1357,7 +1364,7 @@
       <li class="choice-d"><span>The wavelength depends on the bandwidth of the signal</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T3B06" class="question answer-d">
     <div class="title">T3B06 </div>
     <div class="description">What is the formula for converting frequency to approximate wavelength in meters?</div>
     <ol class="choices">
@@ -1367,7 +1374,7 @@
       <li class="choice-d"><span>Wavelength in meters equals 300 divided by frequency in megahertz</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T3B07" class="question answer-a">
     <div class="title">T3B07 </div>
     <div class="description">What property of radio waves is often used to identify the different frequency bands?</div>
     <ol class="choices">
@@ -1377,7 +1384,7 @@
       <li class="choice-d"><span>The voltage standing wave ratio of waves</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T3B08" class="question answer-b">
     <div class="title">T3B08 </div>
     <div class="description">What are the frequency limits of the VHF spectrum?</div>
     <ol class="choices">
@@ -1387,7 +1394,7 @@
       <li class="choice-d"><span>300 to 3000 MHz</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T3B09" class="question answer-d">
     <div class="title">T3B09 </div>
     <div class="description">What are the frequency limits of the UHF spectrum?</div>
     <ol class="choices">
@@ -1397,7 +1404,7 @@
       <li class="choice-d"><span>300 to 3000 MHz</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T3B10" class="question answer-c">
     <div class="title">T3B10 </div>
     <div class="description">What frequency range is referred to as HF?</div>
     <ol class="choices">
@@ -1407,7 +1414,7 @@
       <li class="choice-d"><span>300 to 3000 kHz</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T3B11" class="question answer-b">
     <div class="title">T3B11 </div>
     <div class="description">What is the approximate velocity of a radio wave as it travels through free space?</div>
     <ol class="choices">
@@ -1418,7 +1425,7 @@
     </ol>
   </div>
   <h3 id="T3C">T3C &mdash; Propagation modes: line of sight; sporadic E; meteor and auroral scatter and reflections; tropospheric ducting; F layer skip; radio horizon</h3>
-  <div class="question answer-c">
+  <div id="T3C01" class="question answer-c">
     <div class="title">T3C01 </div>
     <div class="description">Why are direct (not via a repeater) UHF signals rarely heard from stations outside your local coverage area?</div>
     <ol class="choices">
@@ -1428,7 +1435,7 @@
       <li class="choice-d"><span>They collide with trees and shrubbery and fade out</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T3C02" class="question answer-d">
     <div class="title">T3C02 </div>
     <div class="description">Which of the following might be happening when VHF signals are being received from long distances?</div>
     <ol class="choices">
@@ -1438,7 +1445,7 @@
       <li class="choice-d"><span>Signals are being refracted from a sporadic E layer</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T3C03" class="question answer-b">
     <div class="title">T3C03 </div>
     <div class="description">What is a characteristic of VHF signals received via auroral reflection?</div>
     <ol class="choices">
@@ -1448,7 +1455,7 @@
       <li class="choice-d"><span>These types of signals are generally strongest when your antenna is aimed west</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T3C04" class="question answer-b">
     <div class="title">T3C04 </div>
     <div class="description">Which of the following propagation types is most commonly associated with occasional strong over-the-horizon signals on the 10, 6, and 2 meter bands?</div>
     <ol class="choices">
@@ -1458,7 +1465,7 @@
       <li class="choice-d"><span>Gray-line propagation</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T3C05" class="question answer-a">
     <div class="title">T3C05 </div>
     <div class="description">Which of the following effects might cause radio signals to be heard despite obstructions between the transmitting and receiving stations?</div>
     <ol class="choices">
@@ -1468,7 +1475,7 @@
       <li class="choice-d"><span>Doppler shift</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T3C06" class="question answer-a">
     <div class="title">T3C06 </div>
     <div class="description">What mode is responsible for allowing over-the-horizon VHF and UHF communications to ranges of approximately 300 miles on a regular basis?</div>
     <ol class="choices">
@@ -1478,7 +1485,7 @@
       <li class="choice-d"><span>Faraday rotation</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T3C07" class="question answer-b">
     <div class="title">T3C07 </div>
     <div class="description">What band is best suited for communicating via meteor scatter?</div>
     <ol class="choices">
@@ -1488,7 +1495,7 @@
       <li class="choice-d"><span>70 cm</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T3C08" class="question answer-d">
     <div class="title">T3C08 </div>
     <div class="description">What causes tropospheric ducting?</div>
     <ol class="choices">
@@ -1498,7 +1505,7 @@
       <li class="choice-d"><span>Temperature inversions in the atmosphere</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T3C09" class="question answer-a">
     <div class="title">T3C09 </div>
     <div class="description">What is generally the best time for long-distance 10 meter band propagation via the F layer?</div>
     <ol class="choices">
@@ -1508,7 +1515,7 @@
       <li class="choice-d"><span>From shortly after sunset to dawn during periods of low sunspot activity</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T3C10" class="question answer-a">
     <div class="title">T3C10 </div>
     <div class="description">What is the radio horizon?</div>
     <ol class="choices">
@@ -1518,7 +1525,7 @@
       <li class="choice-d"><span>The shortest distance between two points on the Earth's surface</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T3C11" class="question answer-c">
     <div class="title">T3C11 </div>
     <div class="description">Why do VHF and UHF radio signals usually travel somewhat farther than the visual line of sight distance between two stations?</div>
     <ol class="choices">
@@ -1528,7 +1535,7 @@
       <li class="choice-d"><span>Radio waves are blocked by dust particles</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T3C12" class="question answer-a">
     <div class="title">T3C12 </div>
     <div class="description">Which of the following bands may provide long distance communications during the peak of the sunspot cycle?</div>
     <ol class="choices">
@@ -1540,7 +1547,7 @@
   </div>
   <h2 id="T4">T4 &mdash; Amateur radio practices and station set up - [2 Exam Questions - 2 Groups]</h2>
   <h3 id="T4A">T4A &mdash; Station setup: connecting microphones; reducing unwanted emissions; power source; connecting a computer; RF grounding; connecting digital equipment; connecting an SWR meter</h3>
-  <div class="question answer-b">
+  <div id="T4A01" class="question answer-b">
     <div class="title">T4A01 </div>
     <div class="description">Which of the following is true concerning the microphone connectors on amateur transceivers?</div>
     <ol class="choices">
@@ -1550,7 +1557,7 @@
       <li class="choice-d"><span>Un-keyed connectors allow any microphone to be connected</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T4A02" class="question answer-d">
     <div class="title">T4A02 </div>
     <div class="description">How might a computer be used as part of an amateur radio station?</div>
     <ol class="choices">
@@ -1560,7 +1567,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T4A03" class="question answer-a">
     <div class="title">T4A03 </div>
     <div class="description">Which is a good reason to use a regulated power supply for communications equipment?</div>
     <ol class="choices">
@@ -1570,7 +1577,7 @@
       <li class="choice-d"><span>Power consumption is independent of load</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T4A04" class="question answer-a">
     <div class="title">T4A04 </div>
     <div class="description">Where must a filter be installed to reduce harmonic emissions from your station?</div>
     <ol class="choices">
@@ -1580,7 +1587,7 @@
       <li class="choice-d"><span>At the microphone</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T4A05" class="question answer-a">
     <div class="title">T4A05 </div>
     <div class="description">Where should an in-line SWR meter be connected to monitor the standing wave ratio of the station antenna system?</div>
     <ol class="choices">
@@ -1590,7 +1597,7 @@
       <li class="choice-d"><span>In series with the power supply cable, as close as possible to the radio</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T4A06" class="question answer-c">
     <div class="title">T4A06 </div>
     <div class="description">Which of the following would be connected between a transceiver and computer in a packet radio station?</div>
     <ol class="choices">
@@ -1600,7 +1607,7 @@
       <li class="choice-d"><span>Antenna</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T4A07" class="question answer-c">
     <div class="title">T4A07 </div>
     <div class="description">How is a computer’s sound card used when conducting digital communications using a computer?</div>
     <ol class="choices">
@@ -1610,7 +1617,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T4A08" class="question answer-d">
     <div class="title">T4A08 </div>
     <div class="description">Which type of conductor is best to use for RF grounding?</div>
     <ol class="choices">
@@ -1620,7 +1627,7 @@
       <li class="choice-d"><span>Flat strap</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T4A09" class="question answer-d">
     <div class="title">T4A09 </div>
     <div class="description">Which of the following could you use to cure distorted audio caused by RF current flowing on the shield of a microphone cable?</div>
     <ol class="choices">
@@ -1630,7 +1637,7 @@
       <li class="choice-d"><span>Ferrite choke</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T4A10" class="question answer-b">
     <div class="title">T4A10 </div>
     <div class="description">What is the source of a high-pitched whine that varies with engine speed in a mobile transceiver’s receive audio?</div>
     <ol class="choices">
@@ -1640,7 +1647,7 @@
       <li class="choice-d"><span>Anti-lock braking system controllers</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T4A11" class="question answer-a">
     <div class="title">T4A11 </div>
     <div class="description">Where should the negative return connection of a mobile transceiver's power cable be connected?</div>
     <ol class="choices">
@@ -1650,7 +1657,7 @@
       <li class="choice-d"><span>Through the transceiver’s mounting bracket</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T4A12" class="question answer-d">
     <div class="title">T4A12 </div>
     <div class="description">What could be happening if another operator reports a variable high-pitched whine on the audio from your mobile transmitter?</div>
     <ol class="choices">
@@ -1661,7 +1668,7 @@
     </ol>
   </div>
   <h3 id="T4B">T4B &mdash; Operating controls: tuning; use of filters; squelch function; AGC; repeater offset; memory channels</h3>
-  <div class="question answer-b">
+  <div id="T4B01" class="question answer-b">
     <div class="title">T4B01 </div>
     <div class="description">What may happen if a transmitter is operated with the microphone gain set too high?</div>
     <ol class="choices">
@@ -1671,7 +1678,7 @@
       <li class="choice-d"><span>The SWR might increase</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T4B02" class="question answer-a">
     <div class="title">T4B02 </div>
     <div class="description">Which of the following can be used to enter the operating frequency on a modern transceiver?</div>
     <ol class="choices">
@@ -1681,7 +1688,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T4B03" class="question answer-d">
     <div class="title">T4B03 </div>
     <div class="description">What is the purpose of the squelch control on a transceiver?</div>
     <ol class="choices">
@@ -1691,7 +1698,7 @@
       <li class="choice-d"><span>To mute receiver output noise when no signal is being received</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T4B04" class="question answer-b">
     <div class="title">T4B04 </div>
     <div class="description">What is a way to enable quick access to a favorite frequency on your transceiver?</div>
     <ol class="choices">
@@ -1701,7 +1708,7 @@
       <li class="choice-d"><span>Use the scan mode to select the desired frequency</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T4B05" class="question answer-c">
     <div class="title">T4B05 </div>
     <div class="description">Which of the following would reduce ignition interference to a receiver?</div>
     <ol class="choices">
@@ -1711,7 +1718,7 @@
       <li class="choice-d"><span>Use the RIT control</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T4B06" class="question answer-d">
     <div class="title">T4B06 </div>
     <div class="description">Which of the following controls could be used if the voice pitch of a single-sideband signal seems too high or low?</div>
     <ol class="choices">
@@ -1721,7 +1728,7 @@
       <li class="choice-d"><span>The receiver RIT or clarifier</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T4B07" class="question answer-b">
     <div class="title">T4B07 </div>
     <div class="description">What does the term “RIT” mean?</div>
     <ol class="choices">
@@ -1731,7 +1738,7 @@
       <li class="choice-d"><span>Remote Input Transmitter</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T4B08" class="question answer-b">
     <div class="title">T4B08 </div>
     <div class="description">What is the advantage of having multiple receive bandwidth choices on a multimode transceiver?</div>
     <ol class="choices">
@@ -1741,7 +1748,7 @@
       <li class="choice-d"><span>Increases the amount of offset between receive and transmit frequencies</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T4B09" class="question answer-c">
     <div class="title">T4B09 </div>
     <div class="description">Which of the following is an appropriate receive filter bandwidth to select in order to minimize noise and interference for SSB reception?</div>
     <ol class="choices">
@@ -1751,7 +1758,7 @@
       <li class="choice-d"><span>5000 Hz</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T4B10" class="question answer-a">
     <div class="title">T4B10 </div>
     <div class="description">Which of the following is an appropriate receive filter bandwidth to select in order to minimize noise and interference for CW reception?</div>
     <ol class="choices">
@@ -1761,7 +1768,7 @@
       <li class="choice-d"><span>5000 Hz</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T4B11" class="question answer-c">
     <div class="title">T4B11 </div>
     <div class="description">Which of the following describes the common meaning of the term "repeater offset"?</div>
     <ol class="choices">
@@ -1771,7 +1778,7 @@
       <li class="choice-d"><span>Matching the antenna impedance to the feed line impedance</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T4B12" class="question answer-a">
     <div class="title">T4B12 </div>
     <div class="description">What is the function of automatic gain control or AGC?</div>
     <ol class="choices">
@@ -1783,7 +1790,7 @@
   </div>
   <h2 id="T5">T5 &mdash; Electrical principles: math for electronics; electronic principles; Ohm’s Law - [4 Exam Questions - 4 Groups]</h2>
   <h3 id="T5A">T5A &mdash; Electrical principles, units, and terms: current and voltage; conductors and insulators; alternating and direct current</h3>
-  <div class="question answer-d">
+  <div id="T5A01" class="question answer-d">
     <div class="title">T5A01 </div>
     <div class="description">Electrical current is measured in which of the following units?</div>
     <ol class="choices">
@@ -1793,7 +1800,7 @@
       <li class="choice-d"><span>Amperes</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T5A02" class="question answer-b">
     <div class="title">T5A02 </div>
     <div class="description">Electrical power is measured in which of the following units?</div>
     <ol class="choices">
@@ -1803,7 +1810,7 @@
       <li class="choice-d"><span>Amperes</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T5A03" class="question answer-d">
     <div class="title">T5A03 </div>
     <div class="description">What is the name for the flow of electrons in an electric circuit?</div>
     <ol class="choices">
@@ -1813,7 +1820,7 @@
       <li class="choice-d"><span>Current</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T5A04" class="question answer-b">
     <div class="title">T5A04 </div>
     <div class="description">What is the name for a current that flows only in one direction?</div>
     <ol class="choices">
@@ -1823,7 +1830,7 @@
       <li class="choice-d"><span>Smooth current</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T5A05" class="question answer-a">
     <div class="title">T5A05 </div>
     <div class="description">What is the electrical term for the electromotive force (EMF) that causes electron flow?</div>
     <ol class="choices">
@@ -1833,7 +1840,7 @@
       <li class="choice-d"><span>Inductance</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T5A06" class="question answer-a">
     <div class="title">T5A06 </div>
     <div class="description">How much voltage does a mobile transceiver usually require?</div>
     <ol class="choices">
@@ -1843,7 +1850,7 @@
       <li class="choice-d"><span>About 240 volts</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T5A07" class="question answer-c">
     <div class="title">T5A07 </div>
     <div class="description">Which of the following is a good electrical conductor?</div>
     <ol class="choices">
@@ -1853,7 +1860,7 @@
       <li class="choice-d"><span>Rubber</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T5A08" class="question answer-b">
     <div class="title">T5A08 </div>
     <div class="description">Which of the following is a good electrical insulator?</div>
     <ol class="choices">
@@ -1863,7 +1870,7 @@
       <li class="choice-d"><span>Mercury</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T5A09" class="question answer-a">
     <div class="title">T5A09 </div>
     <div class="description">What is the name for a current that reverses direction on a regular basis?</div>
     <ol class="choices">
@@ -1873,7 +1880,7 @@
       <li class="choice-d"><span>Vertical current</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T5A10" class="question answer-c">
     <div class="title">T5A10 </div>
     <div class="description">Which term describes the rate at which electrical energy is used?</div>
     <ol class="choices">
@@ -1883,7 +1890,7 @@
       <li class="choice-d"><span>Voltage</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T5A11" class="question answer-a">
     <div class="title">T5A11 </div>
     <div class="description">What is the basic unit of electromotive force?</div>
     <ol class="choices">
@@ -1893,7 +1900,7 @@
       <li class="choice-d"><span>The ohm</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T5A12" class="question answer-d">
     <div class="title">T5A12 </div>
     <div class="description">What term describes the number of times per second that an alternating current reverses direction?</div>
     <ol class="choices">
@@ -1904,7 +1911,7 @@
     </ol>
   </div>
   <h3 id="T5B">T5B &mdash; Math for electronics: conversion of electrical units; decibels; the metric system</h3>
-  <div class="question answer-c">
+  <div id="T5B01" class="question answer-c">
     <div class="title">T5B01 </div>
     <div class="description">How many milliamperes is 1.5 amperes?</div>
     <ol class="choices">
@@ -1914,7 +1921,7 @@
       <li class="choice-d"><span>15,000 milliamperes</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T5B02" class="question answer-a">
     <div class="title">T5B02 </div>
     <div class="description">What is another way to specify a radio signal frequency of 1,500,000 hertz?</div>
     <ol class="choices">
@@ -1924,7 +1931,7 @@
       <li class="choice-d"><span>150 kHz</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T5B03" class="question answer-c">
     <div class="title">T5B03 </div>
     <div class="description">How many volts are equal to one kilovolt?</div>
     <ol class="choices">
@@ -1934,7 +1941,7 @@
       <li class="choice-d"><span>One million volts</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T5B04" class="question answer-a">
     <div class="title">T5B04 </div>
     <div class="description">How many volts are equal to one microvolt?</div>
     <ol class="choices">
@@ -1944,7 +1951,7 @@
       <li class="choice-d"><span>One one-thousandth of a volt</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T5B05" class="question answer-b">
     <div class="title">T5B05 </div>
     <div class="description">Which of the following is equivalent to 500 milliwatts?</div>
     <ol class="choices">
@@ -1954,7 +1961,7 @@
       <li class="choice-d"><span>50 watts</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T5B06" class="question answer-c">
     <div class="title">T5B06 </div>
     <div class="description">If an ammeter calibrated in amperes is used to measure a 3000-milliampere current, what reading would it show?</div>
     <ol class="choices">
@@ -1964,7 +1971,7 @@
       <li class="choice-d"><span>3,000,000 amperes</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T5B07" class="question answer-c">
     <div class="title">T5B07 </div>
     <div class="description">If a frequency readout calibrated in megahertz shows a reading of 3.525 MHz, what would it show if it were calibrated in kilohertz?</div>
     <ol class="choices">
@@ -1974,7 +1981,7 @@
       <li class="choice-d"><span>3,525,000 kHz</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T5B08" class="question answer-b">
     <div class="title">T5B08 </div>
     <div class="description">How many microfarads are 1,000,000 picofarads?</div>
     <ol class="choices">
@@ -1984,7 +1991,7 @@
       <li class="choice-d"><span>1,000,000,000 microfarads</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T5B09" class="question answer-b">
     <div class="title">T5B09 </div>
     <div class="description">What is the approximate amount of change, measured in decibels (dB), of a power increase from 5 watts to 10 watts?</div>
     <ol class="choices">
@@ -1994,7 +2001,7 @@
       <li class="choice-d"><span>10 dB</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T5B10" class="question answer-c">
     <div class="title">T5B10 </div>
     <div class="description">What is the approximate amount of change, measured in decibels (dB), of a power decrease from 12 watts to 3 watts?</div>
     <ol class="choices">
@@ -2004,7 +2011,7 @@
       <li class="choice-d"><span>-9 dB</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T5B11" class="question answer-a">
     <div class="title">T5B11 </div>
     <div class="description">What is the approximate amount of change, measured in decibels (dB), of a power increase from 20 watts to 200 watts?</div>
     <ol class="choices">
@@ -2014,7 +2021,7 @@
       <li class="choice-d"><span>28 dB</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T5B12" class="question answer-a">
     <div class="title">T5B12 </div>
     <div class="description">Which of the following frequencies is equal to 28,400 kHz?</div>
     <ol class="choices">
@@ -2024,7 +2031,7 @@
       <li class="choice-d"><span>28.400 kHz</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T5B13" class="question answer-c">
     <div class="title">T5B13 </div>
     <div class="description">If a frequency readout shows a reading of 2425 MHz, what frequency is that in GHz?</div>
     <ol class="choices">
@@ -2035,7 +2042,7 @@
     </ol>
   </div>
   <h3 id="T5C">T5C &mdash; Electronic principles: capacitance; inductance; current flow in circuits; alternating current; definition of RF; DC power calculations; impedance</h3>
-  <div class="question answer-d">
+  <div id="T5C01" class="question answer-d">
     <div class="title">T5C01 </div>
     <div class="description">What is the ability to store energy in an electric field called?</div>
     <ol class="choices">
@@ -2045,7 +2052,7 @@
       <li class="choice-d"><span>Capacitance</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T5C02" class="question answer-a">
     <div class="title">T5C02 </div>
     <div class="description">What is the basic unit of capacitance?</div>
     <ol class="choices">
@@ -2055,7 +2062,7 @@
       <li class="choice-d"><span>The henry</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T5C03" class="question answer-d">
     <div class="title">T5C03 </div>
     <div class="description">What is the ability to store energy in a magnetic field called?</div>
     <ol class="choices">
@@ -2065,7 +2072,7 @@
       <li class="choice-d"><span>Inductance</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T5C04" class="question answer-c">
     <div class="title">T5C04 </div>
     <div class="description">What is the basic unit of inductance?</div>
     <ol class="choices">
@@ -2075,7 +2082,7 @@
       <li class="choice-d"><span>The ohm</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T5C05" class="question answer-a">
     <div class="title">T5C05 </div>
     <div class="description">What is the unit of frequency?</div>
     <ol class="choices">
@@ -2085,7 +2092,7 @@
       <li class="choice-d"><span>Tesla</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T5C06" class="question answer-a">
     <div class="title">T5C06 </div>
     <div class="description">What does the abbreviation “RF” refer to?</div>
     <ol class="choices">
@@ -2095,7 +2102,7 @@
       <li class="choice-d"><span>Reflective force in antenna transmission lines</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T5C07" class="question answer-c">
     <div class="title">T5C07 </div>
     <div class="description">What is a usual name for electromagnetic waves that travel through space?</div>
     <ol class="choices">
@@ -2105,7 +2112,7 @@
       <li class="choice-d"><span>Pressure waves</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T5C08" class="question answer-a">
     <div class="title">T5C08 </div>
     <div class="description">What is the formula used to calculate electrical power in a DC circuit?</div>
     <ol class="choices">
@@ -2115,7 +2122,7 @@
       <li class="choice-d"><span>Power (P) equals voltage (E) plus current (I)</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T5C09" class="question answer-a">
     <div class="title">T5C09 </div>
     <div class="description">How much power is being used in a circuit when the applied voltage is 13.8 volts DC and the current is 10 amperes?</div>
     <ol class="choices">
@@ -2125,7 +2132,7 @@
       <li class="choice-d"><span>3.8 watts</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T5C10" class="question answer-b">
     <div class="title">T5C10 </div>
     <div class="description">How much power is being used in a circuit when the applied voltage is 12 volts DC and the current is 2.5 amperes?</div>
     <ol class="choices">
@@ -2135,7 +2142,7 @@
       <li class="choice-d"><span>0.208 watts</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T5C11" class="question answer-b">
     <div class="title">T5C11 </div>
     <div class="description">How many amperes are flowing in a circuit when the applied voltage is 12 volts DC and the load is 120 watts?</div>
     <ol class="choices">
@@ -2145,7 +2152,7 @@
       <li class="choice-d"><span>132 amperes</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T5C12" class="question answer-a">
     <div class="title">T5C12 </div>
     <div class="description">What is meant by the term impedance?</div>
     <ol class="choices">
@@ -2155,7 +2162,7 @@
       <li class="choice-d"><span>It is a measure of the power handling capability of a component</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T5C13" class="question answer-d">
     <div class="title">T5C13 </div>
     <div class="description">What are the units of impedance?</div>
     <ol class="choices">
@@ -2166,7 +2173,7 @@
     </ol>
   </div>
   <h3 id="T5D">T5D &mdash; Ohm’s Law: formulas and usage</h3>
-  <div class="question answer-b">
+  <div id="T5D01" class="question answer-b">
     <div class="title">T5D01 </div>
     <div class="description">What formula is used to calculate current in a circuit?</div>
     <ol class="choices">
@@ -2176,7 +2183,7 @@
       <li class="choice-d"><span>Current (I) equals voltage (E) minus resistance (R)</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T5D02" class="question answer-a">
     <div class="title">T5D02 </div>
     <div class="description">What formula is used to calculate voltage in a circuit?</div>
     <ol class="choices">
@@ -2186,7 +2193,7 @@
       <li class="choice-d"><span>Voltage (E) equals current (I) minus resistance (R)</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T5D03" class="question answer-b">
     <div class="title">T5D03 </div>
     <div class="description">What formula is used to calculate resistance in a circuit?</div>
     <ol class="choices">
@@ -2196,7 +2203,7 @@
       <li class="choice-d"><span>Resistance (R) equals voltage (E) minus current (I)</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T5D04" class="question answer-b">
     <div class="title">T5D04 </div>
     <div class="description">What is the resistance of a circuit in which a current of 3 amperes flows through a resistor connected to 90 volts?</div>
     <ol class="choices">
@@ -2206,7 +2213,7 @@
       <li class="choice-d"><span>270 ohms</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T5D05" class="question answer-c">
     <div class="title">T5D05 </div>
     <div class="description">What is the resistance in a circuit for which the applied voltage is 12 volts and the current flow is 1.5 amperes?</div>
     <ol class="choices">
@@ -2216,7 +2223,7 @@
       <li class="choice-d"><span>13.5 ohms</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T5D06" class="question answer-a">
     <div class="title">T5D06 </div>
     <div class="description">What is the resistance of a circuit that draws 4 amperes from a 12-volt source?</div>
     <ol class="choices">
@@ -2226,7 +2233,7 @@
       <li class="choice-d"><span>8 Ohms</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T5D07" class="question answer-d">
     <div class="title">T5D07 </div>
     <div class="description">What is the current flow in a circuit with an applied voltage of 120 volts and a resistance of 80 ohms?</div>
     <ol class="choices">
@@ -2236,7 +2243,7 @@
       <li class="choice-d"><span>1.5 amperes</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T5D08" class="question answer-c">
     <div class="title">T5D08 </div>
     <div class="description">What is the current flowing through a 100-ohm resistor connected across 200 volts?</div>
     <ol class="choices">
@@ -2246,7 +2253,7 @@
       <li class="choice-d"><span>100 amperes</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T5D09" class="question answer-c">
     <div class="title">T5D09 </div>
     <div class="description">What is the current flowing through a 24-ohm resistor connected across 240 volts?</div>
     <ol class="choices">
@@ -2256,7 +2263,7 @@
       <li class="choice-d"><span>216 amperes</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T5D10" class="question answer-a">
     <div class="title">T5D10 </div>
     <div class="description">What is the voltage across a 2-ohm resistor if a current of 0.5 amperes flows through it?</div>
     <ol class="choices">
@@ -2266,7 +2273,7 @@
       <li class="choice-d"><span>1.5 volts</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T5D11" class="question answer-b">
     <div class="title">T5D11 </div>
     <div class="description">What is the voltage across a 10-ohm resistor if a current of 1 ampere flows through it?</div>
     <ol class="choices">
@@ -2276,7 +2283,7 @@
       <li class="choice-d"><span>9 volts</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T5D12" class="question answer-d">
     <div class="title">T5D12 </div>
     <div class="description">What is the voltage across a 10-ohm resistor if a current of 2 amperes flows through it?</div>
     <ol class="choices">
@@ -2288,7 +2295,7 @@
   </div>
   <h2 id="T6">T6 &mdash; Electrical components: semiconductors; circuit diagrams; component functions - [4 Exam Questions - 4 Groups]</h2>
   <h3 id="T6A">T6A &mdash; Electrical components: fixed and variable resistors; capacitors and inductors; fuses; switches; batteries</h3>
-  <div class="question answer-b">
+  <div id="T6A01" class="question answer-b">
     <div class="title">T6A01 </div>
     <div class="description">What electrical component is used to oppose the flow of current in a DC circuit?</div>
     <ol class="choices">
@@ -2298,7 +2305,7 @@
       <li class="choice-d"><span>Transformer</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T6A02" class="question answer-c">
     <div class="title">T6A02 </div>
     <div class="description">What type of component is often used as an adjustable volume control?</div>
     <ol class="choices">
@@ -2308,7 +2315,7 @@
       <li class="choice-d"><span>Transformer</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T6A03" class="question answer-b">
     <div class="title">T6A03 </div>
     <div class="description">What electrical parameter is controlled by a potentiometer?</div>
     <ol class="choices">
@@ -2318,7 +2325,7 @@
       <li class="choice-d"><span>Field strength</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T6A04" class="question answer-b">
     <div class="title">T6A04 </div>
     <div class="description">What electrical component stores energy in an electric field?</div>
     <ol class="choices">
@@ -2328,7 +2335,7 @@
       <li class="choice-d"><span>Diode</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T6A05" class="question answer-d">
     <div class="title">T6A05 </div>
     <div class="description">What type of electrical component consists of two or more conductive surfaces separated by an insulator?</div>
     <ol class="choices">
@@ -2338,7 +2345,7 @@
       <li class="choice-d"><span>Capacitor</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T6A06" class="question answer-c">
     <div class="title">T6A06 </div>
     <div class="description">What type of electrical component stores energy in a magnetic field?</div>
     <ol class="choices">
@@ -2348,7 +2355,7 @@
       <li class="choice-d"><span>Diode</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T6A07" class="question answer-d">
     <div class="title">T6A07 </div>
     <div class="description">What electrical component is usually composed of a coil of wire?</div>
     <ol class="choices">
@@ -2358,7 +2365,7 @@
       <li class="choice-d"><span>Inductor</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T6A08" class="question answer-b">
     <div class="title">T6A08 </div>
     <div class="description">What electrical component is used to connect or disconnect electrical circuits?</div>
     <ol class="choices">
@@ -2368,7 +2375,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T6A09" class="question answer-a">
     <div class="title">T6A09 </div>
     <div class="description">What electrical component is used to protect other circuit components from current overloads?</div>
     <ol class="choices">
@@ -2378,7 +2385,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T6A10" class="question answer-d">
     <div class="title">T6A10 </div>
     <div class="description">Which of the following battery types is rechargeable?</div>
     <ol class="choices">
@@ -2388,7 +2395,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T6A11" class="question answer-b">
     <div class="title">T6A11 </div>
     <div class="description">Which of the following battery types is not rechargeable?</div>
     <ol class="choices">
@@ -2399,7 +2406,7 @@
     </ol>
   </div>
   <h3 id="T6B">T6B &mdash; Semiconductors: basic principles and applications of solid state devices; diodes and transistors</h3>
-  <div class="question answer-d">
+  <div id="T6B01" class="question answer-d">
     <div class="title">T6B01 </div>
     <div class="description">What class of electronic components is capable of using a voltage or current signal to control current flow?</div>
     <ol class="choices">
@@ -2409,7 +2416,7 @@
       <li class="choice-d"><span>Transistors</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T6B02" class="question answer-c">
     <div class="title">T6B02 </div>
     <div class="description">What electronic component allows current to flow in only one direction?</div>
     <ol class="choices">
@@ -2419,7 +2426,7 @@
       <li class="choice-d"><span>Driven Element</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T6B03" class="question answer-c">
     <div class="title">T6B03 </div>
     <div class="description">Which of these components can be used as an electronic switch or amplifier?</div>
     <ol class="choices">
@@ -2429,7 +2436,7 @@
       <li class="choice-d"><span>Voltmeter</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T6B04" class="question answer-b">
     <div class="title">T6B04 </div>
     <div class="description">Which of the following components can be made of three layers of semiconductor material?</div>
     <ol class="choices">
@@ -2439,7 +2446,7 @@
       <li class="choice-d"><span>Pentagrid converter</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T6B05" class="question answer-a">
     <div class="title">T6B05 </div>
     <div class="description">Which of the following electronic components can amplify signals?</div>
     <ol class="choices">
@@ -2449,7 +2456,7 @@
       <li class="choice-d"><span>Multi-cell battery</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T6B06" class="question answer-b">
     <div class="title">T6B06 </div>
     <div class="description">How is the cathode lead of a semiconductor diode usually identified?</div>
     <ol class="choices">
@@ -2459,7 +2466,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T6B07" class="question answer-b">
     <div class="title">T6B07 </div>
     <div class="description">What does the abbreviation LED stand for?</div>
     <ol class="choices">
@@ -2469,7 +2476,7 @@
       <li class="choice-d"><span>Long Echo Delay</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T6B08" class="question answer-a">
     <div class="title">T6B08 </div>
     <div class="description">What does the abbreviation FET stand for?</div>
     <ol class="choices">
@@ -2479,7 +2486,7 @@
       <li class="choice-d"><span>Field Emission Thickness</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T6B09" class="question answer-c">
     <div class="title">T6B09 </div>
     <div class="description">What are the names of the two electrodes of a diode?</div>
     <ol class="choices">
@@ -2489,7 +2496,7 @@
       <li class="choice-d"><span>Gate and base</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T6B10" class="question answer-a">
     <div class="title">T6B10 </div>
     <div class="description">What are the three electrodes of a PNP or NPN transistor?</div>
     <ol class="choices">
@@ -2499,7 +2506,7 @@
       <li class="choice-d"><span>Cathode, drift cavity, and collector</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T6B11" class="question answer-b">
     <div class="title">T6B11 </div>
     <div class="description">What at are the three electrodes of a field effect transistor?</div>
     <ol class="choices">
@@ -2509,7 +2516,7 @@
       <li class="choice-d"><span>Cathode, gate, and anode</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T6B12" class="question answer-a">
     <div class="title">T6B12 </div>
     <div class="description">What is the term that describes a transistor's ability to amplify a signal?</div>
     <ol class="choices">
@@ -2520,7 +2527,7 @@
     </ol>
   </div>
   <h3 id="T6C">T6C &mdash; Circuit diagrams; schematic symbols</h3>
-  <div class="question answer-c">
+  <div id="T6C01" class="question answer-c">
     <div class="title">T6C01 </div>
     <div class="description">What is the name for standardized representations of components in an electrical wiring diagram?</div>
     <ol class="choices">
@@ -2530,7 +2537,7 @@
       <li class="choice-d"><span>Component callouts</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T6C02" class="question answer-a">
     <div class="title">T6C02 </div>
     <div class="description">What is component 1 in figure T1?</div>
     <ol class="choices">
@@ -2540,7 +2547,7 @@
       <li class="choice-d"><span>Connector</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T6C03" class="question answer-b">
     <div class="title">T6C03 </div>
     <div class="description">What is component 2 in figure T1?</div>
     <ol class="choices">
@@ -2550,7 +2557,7 @@
       <li class="choice-d"><span>Connector</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T6C04" class="question answer-c">
     <div class="title">T6C04 </div>
     <div class="description">What is component 3 in figure T1?</div>
     <ol class="choices">
@@ -2560,7 +2567,7 @@
       <li class="choice-d"><span>Ground symbol</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T6C05" class="question answer-c">
     <div class="title">T6C05 </div>
     <div class="description">What is component 4 in figure T1?</div>
     <ol class="choices">
@@ -2570,7 +2577,7 @@
       <li class="choice-d"><span>Ground symbol</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T6C06" class="question answer-b">
     <div class="title">T6C06 </div>
     <div class="description">What is component 6 in figure T2?</div>
     <ol class="choices">
@@ -2580,7 +2587,7 @@
       <li class="choice-d"><span>Transistor</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T6C07" class="question answer-d">
     <div class="title">T6C07 </div>
     <div class="description">What is component 8 in figure T2?</div>
     <ol class="choices">
@@ -2590,7 +2597,7 @@
       <li class="choice-d"><span>Light emitting diode</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T6C08" class="question answer-c">
     <div class="title">T6C08 </div>
     <div class="description">What is component 9 in figure T2?</div>
     <ol class="choices">
@@ -2600,7 +2607,7 @@
       <li class="choice-d"><span>Variable transformer</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T6C09" class="question answer-d">
     <div class="title">T6C09 </div>
     <div class="description">What is component 4 in figure T2?</div>
     <ol class="choices">
@@ -2610,7 +2617,7 @@
       <li class="choice-d"><span>Transformer</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T6C10" class="question answer-d">
     <div class="title">T6C10 </div>
     <div class="description">What is component 3 in figure T3?</div>
     <ol class="choices">
@@ -2620,7 +2627,7 @@
       <li class="choice-d"><span>Variable inductor</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T6C11" class="question answer-a">
     <div class="title">T6C11 </div>
     <div class="description">What is component 4 in figure T3?</div>
     <ol class="choices">
@@ -2630,7 +2637,7 @@
       <li class="choice-d"><span>Ground</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T6C12" class="question answer-a">
     <div class="title">T6C12 </div>
     <div class="description">What do the symbols on an electrical circuit schematic diagram represent?</div>
     <ol class="choices">
@@ -2640,7 +2647,7 @@
       <li class="choice-d"><span>Traffic nodes</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T6C13" class="question answer-c">
     <div class="title">T6C13 </div>
     <div class="description">Which of the following is accurately represented in electrical circuit schematic diagrams?</div>
     <ol class="choices">
@@ -2651,7 +2658,7 @@
     </ol>
   </div>
   <h3 id="T6D">T6D &mdash; Component functions: rectification; switches; indicators; power supply components; resonant circuit; shielding; power transformers; integrated circuits</h3>
-  <div class="question answer-b">
+  <div id="T6D01" class="question answer-b">
     <div class="title">T6D01 </div>
     <div class="description">Which of the following devices or circuits changes an alternating current into a varying direct current signal?</div>
     <ol class="choices">
@@ -2661,7 +2668,7 @@
       <li class="choice-d"><span>Reflector</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T6D02" class="question answer-a">
     <div class="title">T6D02 </div>
     <div class="description">What best describes a relay?</div>
     <ol class="choices">
@@ -2671,7 +2678,7 @@
       <li class="choice-d"><span>A pass transistor</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T6D03" class="question answer-a">
     <div class="title">T6D03 </div>
     <div class="description">What type of switch is represented by component 3 in figure T2?</div>
     <ol class="choices">
@@ -2681,7 +2688,7 @@
       <li class="choice-d"><span>Double-pole double-throw</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T6D04" class="question answer-c">
     <div class="title">T6D04 </div>
     <div class="description">Which of the following can be used to display signal strength on a numeric scale?</div>
     <ol class="choices">
@@ -2691,7 +2698,7 @@
       <li class="choice-d"><span>Relay</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T6D05" class="question answer-a">
     <div class="title">T6D05 </div>
     <div class="description">What type of circuit controls the amount of voltage from a power supply?</div>
     <ol class="choices">
@@ -2701,7 +2708,7 @@
       <li class="choice-d"><span>Phase inverter</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T6D06" class="question answer-b">
     <div class="title">T6D06 </div>
     <div class="description">What component is commonly used to change 120V AC house current to a lower AC voltage for other uses?</div>
     <ol class="choices">
@@ -2711,7 +2718,7 @@
       <li class="choice-d"><span>Diode</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T6D07" class="question answer-a">
     <div class="title">T6D07 </div>
     <div class="description">Which of the following is commonly used as a visual indicator?</div>
     <ol class="choices">
@@ -2721,7 +2728,7 @@
       <li class="choice-d"><span>Bipolar transistor</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T6D08" class="question answer-d">
     <div class="title">T6D08 </div>
     <div class="description">Which of the following is used together with an inductor to make a tuned circuit?</div>
     <ol class="choices">
@@ -2731,7 +2738,7 @@
       <li class="choice-d"><span>Capacitor</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T6D09" class="question answer-c">
     <div class="title">T6D09 </div>
     <div class="description">What is the name of a device that combines several semiconductors and other components into one package?</div>
     <ol class="choices">
@@ -2741,7 +2748,7 @@
       <li class="choice-d"><span>Transformer</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T6D10" class="question answer-c">
     <div class="title">T6D10 </div>
     <div class="description">What is the function of component 2 in Figure T1?</div>
     <ol class="choices">
@@ -2751,7 +2758,7 @@
       <li class="choice-d"><span>Convert electrical energy into radio waves</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T6D11" class="question answer-a">
     <div class="title">T6D11 </div>
     <div class="description">What is a simple resonant or tuned circuit?</div>
     <ol class="choices">
@@ -2761,7 +2768,7 @@
       <li class="choice-d"><span>A circuit designed to provide high fidelity audio</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T6D12" class="question answer-c">
     <div class="title">T6D12 </div>
     <div class="description">Which of the following is a common reason to use shielded wire?</div>
     <ol class="choices">
@@ -2773,7 +2780,7 @@
   </div>
   <h2 id="T7">T7 &mdash; Station equipment: common transmitter and receiver problems; antenna measurements; troubleshooting; basic repair and testing - [4 Exam Questions - 4 Groups]</h2>
   <h3 id="T7A">T7A &mdash; Station equipment: receivers; transmitters; transceivers; modulation; transverters; low power and weak signal operation; transmit and receive amplifiers</h3>
-  <div class="question answer-b">
+  <div id="T7A01" class="question answer-b">
     <div class="title">T7A01 </div>
     <div class="description">Which term describes the ability of a receiver to detect the presence of a signal?</div>
     <ol class="choices">
@@ -2783,7 +2790,7 @@
       <li class="choice-d"><span>Total Harmonic Distortion</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T7A02" class="question answer-b">
     <div class="title">T7A02 </div>
     <div class="description">What is a transceiver?</div>
     <ol class="choices">
@@ -2793,7 +2800,7 @@
       <li class="choice-d"><span>A type of antenna matching network</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T7A03" class="question answer-b">
     <div class="title">T7A03 </div>
     <div class="description">Which of the following is used to convert a radio signal from one frequency to another?</div>
     <ol class="choices">
@@ -2803,7 +2810,7 @@
       <li class="choice-d"><span>Amplifier</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T7A04" class="question answer-c">
     <div class="title">T7A04 </div>
     <div class="description">Which term describes the ability of a receiver to discriminate between multiple signals?</div>
     <ol class="choices">
@@ -2813,7 +2820,7 @@
       <li class="choice-d"><span>Harmonic Distortion</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T7A05" class="question answer-d">
     <div class="title">T7A05 </div>
     <div class="description">What is the name of a circuit that generates a signal of a desired frequency?</div>
     <ol class="choices">
@@ -2823,7 +2830,7 @@
       <li class="choice-d"><span>Oscillator</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T7A06" class="question answer-c">
     <div class="title">T7A06 </div>
     <div class="description">What device takes the output of a low-powered 28 MHz SSB exciter and produces a 222 MHz output signal?</div>
     <ol class="choices">
@@ -2833,7 +2840,7 @@
       <li class="choice-d"><span>Phase converter</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T7A07" class="question answer-d">
     <div class="title">T7A07 </div>
     <div class="description">What is meant by term “PTT”?</div>
     <ol class="choices">
@@ -2843,7 +2850,7 @@
       <li class="choice-d"><span>The push to talk function which switches between receive and transmit</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T7A08" class="question answer-c">
     <div class="title">T7A08 </div>
     <div class="description">Which of the following describes combining speech with an RF carrier signal?-</div>
     <ol class="choices">
@@ -2853,7 +2860,7 @@
       <li class="choice-d"><span>Low-pass filtering</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T7A09" class="question answer-b">
     <div class="title">T7A09 </div>
     <div class="description">Which of the following devices is most useful for VHF weak-signal communication?</div>
     <ol class="choices">
@@ -2863,7 +2870,7 @@
       <li class="choice-d"><span>A mobile VHF FM transceiver</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T7A10" class="question answer-b">
     <div class="title">T7A10 </div>
     <div class="description">What device increases the low-power output from a handheld transceiver?</div>
     <ol class="choices">
@@ -2873,7 +2880,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T7A11" class="question answer-a">
     <div class="title">T7A11 </div>
     <div class="description">Where is an RF preamplifier installed?</div>
     <ol class="choices">
@@ -2884,7 +2891,7 @@
     </ol>
   </div>
   <h3 id="T7B">T7B &mdash; Common transmitter and receiver problems: symptoms of overload and overdrive; distortion; causes of interference; interference and consumer electronics; part 15 devices; over and under modulation; RF feedback; off frequency signals; fading and noise; problems with digital communications interfaces</h3>
-  <div class="question answer-d">
+  <div id="T7B01" class="question answer-d">
     <div class="title">T7B01 </div>
     <div class="description">What can you do if you are told your FM handheld or mobile transceiver is over-deviating?</div>
     <ol class="choices">
@@ -2894,7 +2901,7 @@
       <li class="choice-d"><span>Talk farther away from the microphone</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T7B02" class="question answer-a">
     <div class="title">T7B02 </div>
     <div class="description">What would cause a broadcast AM or FM radio to receive an amateur radio transmission unintentionally?</div>
     <ol class="choices">
@@ -2904,7 +2911,7 @@
       <li class="choice-d"><span>The deviation of an FM transmitter is set too low</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T7B03" class="question answer-d">
     <div class="title">T7B03 </div>
     <div class="description">Which of the following may be a cause of radio frequency interference?</div>
     <ol class="choices">
@@ -2914,7 +2921,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T7B04" class="question answer-d">
     <div class="title">T7B04 </div>
     <div class="description">Which of the following is a way to reduce or eliminate interference by an amateur transmitter to a nearby telephone?</div>
     <ol class="choices">
@@ -2924,7 +2931,7 @@
       <li class="choice-d"><span>Put a RF filter on the telephone</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T7B05" class="question answer-a">
     <div class="title">T7B05 </div>
     <div class="description">How can overload of a non-amateur radio or TV receiver by an amateur signal be reduced or eliminated?</div>
     <ol class="choices">
@@ -2934,7 +2941,7 @@
       <li class="choice-d"><span>Switch the transmitter to a narrow-band mode</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T7B06" class="question answer-a">
     <div class="title">T7B06 </div>
     <div class="description">Which of the following actions should you take if a neighbor tells you that your station’s transmissions are interfering with their radio or TV reception?</div>
     <ol class="choices">
@@ -2944,7 +2951,7 @@
       <li class="choice-d"><span>Install a harmonic doubler on the output of your transmitter and tune it until the interference is eliminated</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T7B07" class="question answer-d">
     <div class="title">T7B07 </div>
     <div class="description">Which of the following may be useful in correcting a radio frequency interference problem?</div>
     <ol class="choices">
@@ -2954,7 +2961,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T7B08" class="question answer-d">
     <div class="title">T7B08 </div>
     <div class="description">What should you do if something in a neighbor’s home is causing harmful interference to your amateur station?</div>
     <ol class="choices">
@@ -2964,7 +2971,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T7B09" class="question answer-a">
     <div class="title">T7B09 </div>
     <div class="description">What is a Part 15 device?</div>
     <ol class="choices">
@@ -2974,7 +2981,7 @@
       <li class="choice-d"><span>A type of test set used to determine whether a transmitter is in compliance with FCC regulation 91.15</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T7B10" class="question answer-d">
     <div class="title">T7B10 </div>
     <div class="description">What might be the problem if you receive a report that your audio signal through the repeater is distorted or unintelligible?</div>
     <ol class="choices">
@@ -2984,7 +2991,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T7B11" class="question answer-c">
     <div class="title">T7B11 </div>
     <div class="description">What is a symptom of RF feedback in a transmitter or transceiver?</div>
     <ol class="choices">
@@ -2994,7 +3001,7 @@
       <li class="choice-d"><span>Frequent blowing of power supply fuses</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T7B12" class="question answer-d">
     <div class="title">T7B12 </div>
     <div class="description">What might be the first step to resolve cable TV interference from your ham radio transmission?</div>
     <ol class="choices">
@@ -3005,7 +3012,7 @@
     </ol>
   </div>
   <h3 id="T7C">T7C &mdash; Antenna measurements and troubleshooting: measuring SWR; dummy loads; coaxial cables; feed line failure modes</h3>
-  <div class="question answer-a">
+  <div id="T7C01" class="question answer-a">
     <div class="title">T7C01 </div>
     <div class="description">What is the primary purpose of a dummy load?</div>
     <ol class="choices">
@@ -3015,7 +3022,7 @@
       <li class="choice-d"><span>To improve the signal to noise ratio of your receiver</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T7C02" class="question answer-b">
     <div class="title">T7C02 </div>
     <div class="description">Which of the following instruments can be used to determine if an antenna is resonant at the desired operating frequency?</div>
     <ol class="choices">
@@ -3025,7 +3032,7 @@
       <li class="choice-d"><span>A frequency counter</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T7C03" class="question answer-a">
     <div class="title">T7C03 </div>
     <div class="description">What, in general terms, is standing wave ratio (SWR)?</div>
     <ol class="choices">
@@ -3035,7 +3042,7 @@
       <li class="choice-d"><span>An indication of the quality of your station’s ground connection</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T7C04" class="question answer-c">
     <div class="title">T7C04 </div>
     <div class="description">What reading on an SWR meter indicates a perfect impedance match between the antenna and the feed line?</div>
     <ol class="choices">
@@ -3045,7 +3052,7 @@
       <li class="choice-d"><span>10 to 1</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T7C05" class="question answer-a">
     <div class="title">T7C05 </div>
     <div class="description">What is the approximate SWR value above which the protection circuits in most solid-state transmitters begin to reduce transmitter power?</div>
     <ol class="choices">
@@ -3055,7 +3062,7 @@
       <li class="choice-d"><span>10 to 1</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T7C06" class="question answer-d">
     <div class="title">T7C06 </div>
     <div class="description">What does an SWR reading of 4:1 indicate?</div>
     <ol class="choices">
@@ -3065,7 +3072,7 @@
       <li class="choice-d"><span>Impedance mismatch</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T7C07" class="question answer-c">
     <div class="title">T7C07 </div>
     <div class="description">What happens to power lost in a feed line?</div>
     <ol class="choices">
@@ -3075,7 +3082,7 @@
       <li class="choice-d"><span>It can cause distortion of your signal</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T7C08" class="question answer-d">
     <div class="title">T7C08 </div>
     <div class="description">What instrument other than an SWR meter could you use to determine if a feed line and antenna are properly matched?</div>
     <ol class="choices">
@@ -3085,7 +3092,7 @@
       <li class="choice-d"><span>Directional wattmeter</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T7C09" class="question answer-a">
     <div class="title">T7C09 </div>
     <div class="description">Which of the following is the most common cause for failure of coaxial cables?</div>
     <ol class="choices">
@@ -3095,7 +3102,7 @@
       <li class="choice-d"><span>Overloading</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T7C10" class="question answer-d">
     <div class="title">T7C10 </div>
     <div class="description">Why should the outer jacket of coaxial cable be resistant to ultraviolet light?</div>
     <ol class="choices">
@@ -3105,7 +3112,7 @@
       <li class="choice-d"><span>Ultraviolet light can damage the jacket and allow water to enter the cable</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T7C11" class="question answer-c">
     <div class="title">T7C11 </div>
     <div class="description">What is a disadvantage of air core coaxial cable when compared to foam or solid dielectric types?</div>
     <ol class="choices">
@@ -3115,7 +3122,7 @@
       <li class="choice-d"><span>It cannot be used at below freezing temperatures</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T7C12" class="question answer-b">
     <div class="title">T7C12 </div>
     <div class="description">Which of the following is a common use of coaxial cable?</div>
     <ol class="choices">
@@ -3125,7 +3132,7 @@
       <li class="choice-d"><span>Connecting data signals from a TNC to a computer</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T7C13" class="question answer-b">
     <div class="title">T7C13 </div>
     <div class="description">What does a dummy load consist of?</div>
     <ol class="choices">
@@ -3136,7 +3143,7 @@
     </ol>
   </div>
   <h3 id="T7D">T7D &mdash; Basic repair and testing: soldering; using basic test instruments; connecting a voltmeter, ammeter, or ohmmeter</h3>
-  <div class="question answer-b">
+  <div id="T7D01" class="question answer-b">
     <div class="title">T7D01 </div>
     <div class="description">Which instrument would you use to measure electric potential or electromotive force?</div>
     <ol class="choices">
@@ -3146,7 +3153,7 @@
       <li class="choice-d"><span>An ohmmeter</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T7D02" class="question answer-b">
     <div class="title">T7D02 </div>
     <div class="description">What is the correct way to connect a voltmeter to a circuit?</div>
     <ol class="choices">
@@ -3156,7 +3163,7 @@
       <li class="choice-d"><span>In phase with the circuit</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T7D03" class="question answer-a">
     <div class="title">T7D03 </div>
     <div class="description">How is an ammeter usually connected to a circuit?</div>
     <ol class="choices">
@@ -3166,7 +3173,7 @@
       <li class="choice-d"><span>In phase with the circuit</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T7D04" class="question answer-d">
     <div class="title">T7D04 </div>
     <div class="description">Which instrument is used to measure electric current?</div>
     <ol class="choices">
@@ -3176,7 +3183,7 @@
       <li class="choice-d"><span>An ammeter</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T7D05" class="question answer-d">
     <div class="title">T7D05 </div>
     <div class="description">What instrument is used to measure resistance?</div>
     <ol class="choices">
@@ -3186,7 +3193,7 @@
       <li class="choice-d"><span>An ohmmeter</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T7D06" class="question answer-c">
     <div class="title">T7D06 </div>
     <div class="description">Which of the following might damage a multimeter?</div>
     <ol class="choices">
@@ -3196,7 +3203,7 @@
       <li class="choice-d"><span>Not allowing it to warm up properly</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T7D07" class="question answer-d">
     <div class="title">T7D07 </div>
     <div class="description">Which of the following measurements are commonly made using a multimeter?</div>
     <ol class="choices">
@@ -3206,7 +3213,7 @@
       <li class="choice-d"><span>Voltage and resistance</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T7D08" class="question answer-c">
     <div class="title">T7D08 </div>
     <div class="description">Which of the following types of solder is best for radio and electronic use?</div>
     <ol class="choices">
@@ -3216,7 +3223,7 @@
       <li class="choice-d"><span>Aluminum solder</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T7D09" class="question answer-c">
     <div class="title">T7D09 </div>
     <div class="description">What is the characteristic appearance of a cold solder joint?</div>
     <ol class="choices">
@@ -3226,7 +3233,7 @@
       <li class="choice-d"><span>A greenish tint</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T7D10" class="question answer-b">
     <div class="title">T7D10 </div>
     <div class="description">What is probably happening when an ohmmeter, connected across an unpowered circuit, initially indicates a low resistance and then shows increasing resistance with time?</div>
     <ol class="choices">
@@ -3236,7 +3243,7 @@
       <li class="choice-d"><span>The circuit is a relaxation oscillator</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T7D11" class="question answer-b">
     <div class="title">T7D11 </div>
     <div class="description">Which of the following precautions should be taken when measuring circuit resistance with an ohmmeter?</div>
     <ol class="choices">
@@ -3246,7 +3253,7 @@
       <li class="choice-d"><span>Ensure that the circuit is operating at the correct frequency</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T7D12" class="question answer-b">
     <div class="title">T7D12 </div>
     <div class="description">Which of the following precautions should be taken when measuring high voltages with a voltmeter?</div>
     <ol class="choices">
@@ -3258,7 +3265,7 @@
   </div>
   <h2 id="T8">T8 &mdash; Modulation modes: amateur satellite operation; operating activities; non-voice communications - [4 Exam Questions - 4 Groups]</h2>
   <h3 id="T8A">T8A &mdash; Modulation modes: bandwidth of various signals; choice of emission type</h3>
-  <div class="question answer-c">
+  <div id="T8A01" class="question answer-c">
     <div class="title">T8A01 </div>
     <div class="description">Which of the following is a form of amplitude modulation?</div>
     <ol class="choices">
@@ -3268,7 +3275,7 @@
       <li class="choice-d"><span>Phase shift keying</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T8A02" class="question answer-a">
     <div class="title">T8A02 </div>
     <div class="description">What type of modulation is most commonly used for VHF packet radio transmissions?</div>
     <ol class="choices">
@@ -3278,7 +3285,7 @@
       <li class="choice-d"><span>Spread Spectrum</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T8A03" class="question answer-c">
     <div class="title">T8A03 </div>
     <div class="description">Which type of voice mode is most often used for long-distance (weak signal) contacts on the VHF and UHF bands?</div>
     <ol class="choices">
@@ -3288,7 +3295,7 @@
       <li class="choice-d"><span>PM</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T8A04" class="question answer-d">
     <div class="title">T8A04 </div>
     <div class="description">Which type of modulation is most commonly used for VHF and UHF voice repeaters?</div>
     <ol class="choices">
@@ -3298,7 +3305,7 @@
       <li class="choice-d"><span>FM</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T8A05" class="question answer-c">
     <div class="title">T8A05 </div>
     <div class="description">Which of the following types of emission has the narrowest bandwidth?</div>
     <ol class="choices">
@@ -3308,7 +3315,7 @@
       <li class="choice-d"><span>Slow-scan TV</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T8A06" class="question answer-a">
     <div class="title">T8A06 </div>
     <div class="description">Which sideband is normally used for 10 meter HF, VHF and UHF single-sideband communications?</div>
     <ol class="choices">
@@ -3318,7 +3325,7 @@
       <li class="choice-d"><span>Inverted sideband</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T8A07" class="question answer-c">
     <div class="title">T8A07 </div>
     <div class="description">What is the primary advantage of single sideband over FM for voice transmissions?</div>
     <ol class="choices">
@@ -3328,7 +3335,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T8A08" class="question answer-b">
     <div class="title">T8A08 </div>
     <div class="description">What is the approximate bandwidth of a single sideband voice signal?</div>
     <ol class="choices">
@@ -3338,7 +3345,7 @@
       <li class="choice-d"><span>15 kHz</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T8A09" class="question answer-c">
     <div class="title">T8A09 </div>
     <div class="description">What is the approximate bandwidth of a VHF repeater FM phone signal?</div>
     <ol class="choices">
@@ -3348,7 +3355,7 @@
       <li class="choice-d"><span>Between 50 and 125 kHz</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T8A10" class="question answer-b">
     <div class="title">T8A10 </div>
     <div class="description">What is the typical bandwidth of analog fast-scan TV transmissions on the 70 cm band?</div>
     <ol class="choices">
@@ -3358,7 +3365,7 @@
       <li class="choice-d"><span>About 1 MHz</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T8A11" class="question answer-b">
     <div class="title">T8A11 </div>
     <div class="description">What is the approximate maximum bandwidth required to transmit a CW signal?</div>
     <ol class="choices">
@@ -3369,7 +3376,7 @@
     </ol>
   </div>
   <h3 id="T8B">T8B &mdash; Amateur satellite operation; Doppler shift, basic orbits, operating protocols; control operator, transmitter power considerations; satellite tracking; digital modes</h3>
-  <div class="question answer-d">
+  <div id="T8B01" class="question answer-d">
     <div class="title">T8B01 [97.301, 97.207(c)]</div>
     <div class="description">Who may be the control operator of a station communicating through an amateur satellite or space station?</div>
     <ol class="choices">
@@ -3379,7 +3386,7 @@
       <li class="choice-d"><span>Any amateur whose license privileges allow them to transmit on the satellite uplink frequency</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T8B02" class="question answer-b">
     <div class="title">T8B02 [97.313]</div>
     <div class="description">How much transmitter power should be used on the uplink frequency of an amateur satellite or space station?</div>
     <ol class="choices">
@@ -3389,7 +3396,7 @@
       <li class="choice-d"><span>Never more than 1 watt</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T8B03" class="question answer-d">
     <div class="title">T8B03 </div>
     <div class="description">Which of the following are provided by satellite tracking programs?</div>
     <ol class="choices">
@@ -3399,7 +3406,7 @@
       <li class="choice-d"><span>All of these answers are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T8B04" class="question answer-b">
     <div class="title">T8B04 [97.301, 97.207(c)]</div>
     <div class="description">Which amateur stations may make contact with an amateur station on the International Space Station using 2 meter and 70 cm band amateur radio frequencies?</div>
     <ol class="choices">
@@ -3409,7 +3416,7 @@
       <li class="choice-d"><span>You cannot talk to the ISS on amateur radio frequencies</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T8B05" class="question answer-d">
     <div class="title">T8B05 </div>
     <div class="description">What is a satellite beacon?</div>
     <ol class="choices">
@@ -3419,7 +3426,7 @@
       <li class="choice-d"><span>A transmission from a space station that contains information about a satellite</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T8B06" class="question answer-b">
     <div class="title">T8B06 </div>
     <div class="description">Which of the following are inputs to a satellite tracking program?</div>
     <ol class="choices">
@@ -3429,7 +3436,7 @@
       <li class="choice-d"><span>All of these answers are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T8B07" class="question answer-c">
     <div class="title">T8B07 </div>
     <div class="description">With regard to satellite communications, what is Doppler shift?</div>
     <ol class="choices">
@@ -3439,7 +3446,7 @@
       <li class="choice-d"><span>A special digital communications mode for some satellites</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T8B08" class="question answer-b">
     <div class="title">T8B08 </div>
     <div class="description">What is meant by the statement that a satellite is operating in mode U/V?</div>
     <ol class="choices">
@@ -3449,7 +3456,7 @@
       <li class="choice-d"><span>The satellite frequencies are usually variable</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T8B09" class="question answer-b">
     <div class="title">T8B09 </div>
     <div class="description">What causes spin fading when referring to satellite signals?</div>
     <ol class="choices">
@@ -3459,7 +3466,7 @@
       <li class="choice-d"><span>Interfering signals within the satellite uplink band</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T8B10" class="question answer-c">
     <div class="title">T8B10 </div>
     <div class="description">What do the initials LEO tell you about an amateur satellite?</div>
     <ol class="choices">
@@ -3469,7 +3476,7 @@
       <li class="choice-d"><span>The satellite uses Light Emitting Optics</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T8B11" class="question answer-c">
     <div class="title">T8B11 </div>
     <div class="description">What is a commonly used method of sending signals to and from a digital satellite?</div>
     <ol class="choices">
@@ -3480,7 +3487,7 @@
     </ol>
   </div>
   <h3 id="T8C">T8C &mdash; Operating activities: radio direction finding; radio control; contests; linking over the Internet; grid locators</h3>
-  <div class="question answer-c">
+  <div id="T8C01" class="question answer-c">
     <div class="title">T8C01 </div>
     <div class="description">Which of the following methods is used to locate sources of noise interference or jamming?</div>
     <ol class="choices">
@@ -3490,7 +3497,7 @@
       <li class="choice-d"><span>Phase locking</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T8C02" class="question answer-b">
     <div class="title">T8C02 </div>
     <div class="description">Which of these items would be useful for a hidden transmitter hunt?</div>
     <ol class="choices">
@@ -3500,7 +3507,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T8C03" class="question answer-a">
     <div class="title">T8C03 </div>
     <div class="description">What popular operating activity involves contacting as many stations as possible during a specified period of time?</div>
     <ol class="choices">
@@ -3510,7 +3517,7 @@
       <li class="choice-d"><span>Simulated emergency exercises</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T8C04" class="question answer-c">
     <div class="title">T8C04 </div>
     <div class="description">Which of the following is good procedure when contacting another station in a radio contest?</div>
     <ol class="choices">
@@ -3520,7 +3527,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T8C05" class="question answer-a">
     <div class="title">T8C05 </div>
     <div class="description">What is a grid locator?</div>
     <ol class="choices">
@@ -3530,7 +3537,7 @@
       <li class="choice-d"><span>An instrument for radio direction finding</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T8C06" class="question answer-b">
     <div class="title">T8C06 </div>
     <div class="description">How is access to an IRLP node accomplished?</div>
     <ol class="choices">
@@ -3540,7 +3547,7 @@
       <li class="choice-d"><span>By using CTCSS tone codes</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T8C07" class="question answer-b">
     <div class="title">T8C07 [97.215(c)]</div>
     <div class="description">What is the maximum power allowed when transmitting telecommand signals to radio controlled models?</div>
     <ol class="choices">
@@ -3550,7 +3557,7 @@
       <li class="choice-d"><span>1500 watts</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T8C08" class="question answer-c">
     <div class="title">T8C08 [97.215(a)]</div>
     <div class="description">What is required in place of on-air station identification when sending signals to a radio control model using amateur frequencies?</div>
     <ol class="choices">
@@ -3560,7 +3567,7 @@
       <li class="choice-d"><span>A flag must be affixed to the transmitter antenna with the station call sign in 1 inch high letters or larger</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T8C09" class="question answer-c">
     <div class="title">T8C09 </div>
     <div class="description">How might you obtain a list of active nodes that use VoIP?</div>
     <ol class="choices">
@@ -3570,7 +3577,7 @@
       <li class="choice-d"><span>From the local repeater frequency coordinator</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T8C10" class="question answer-d">
     <div class="title">T8C10 </div>
     <div class="description">How do you select a specific IRLP node when using a portable transceiver?</div>
     <ol class="choices">
@@ -3580,7 +3587,7 @@
       <li class="choice-d"><span>Use the keypad to transmit the IRLP node ID</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T8C11" class="question answer-a">
     <div class="title">T8C11 </div>
     <div class="description">What name is given to an amateur radio station that is used to connect other amateur stations to the Internet?</div>
     <ol class="choices">
@@ -3590,7 +3597,7 @@
       <li class="choice-d"><span>A beacon</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T8C12" class="question answer-d">
     <div class="title">T8C12 </div>
     <div class="description">What is meant by Voice Over Internet Protocol (VoIP) as used in amateur radio?</div>
     <ol class="choices">
@@ -3600,7 +3607,7 @@
       <li class="choice-d"><span>A method of delivering voice communications over the Internet using digital techniques</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T8C13" class="question answer-a">
     <div class="title">T8C13 </div>
     <div class="description">What is the Internet Radio Linking Project (IRLP)?</div>
     <ol class="choices">
@@ -3611,7 +3618,7 @@
     </ol>
   </div>
   <h3 id="T8D">T8D &mdash; Non-voice communications: image signals; digital modes; CW; packet; PSK31; APRS; error detection and correction; NTSC</h3>
-  <div class="question answer-d">
+  <div id="T8D01" class="question answer-d">
     <div class="title">T8D01 </div>
     <div class="description">Which of the following is an example of a digital communications method?</div>
     <ol class="choices">
@@ -3621,7 +3628,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T8D02" class="question answer-a">
     <div class="title">T8D02 </div>
     <div class="description">What does the term “APRS” mean?</div>
     <ol class="choices">
@@ -3631,7 +3638,7 @@
       <li class="choice-d"><span>Advanced Polar Radio System</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T8D03" class="question answer-d">
     <div class="title">T8D03 </div>
     <div class="description">Which of the following devices provides data to the transmitter when sending automatic position reports from a mobile amateur radio station?</div>
     <ol class="choices">
@@ -3641,7 +3648,7 @@
       <li class="choice-d"><span>A Global Positioning System receiver</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T8D04" class="question answer-c">
     <div class="title">T8D04 </div>
     <div class="description">What type of transmission is indicated by the term NTSC?</div>
     <ol class="choices">
@@ -3651,7 +3658,7 @@
       <li class="choice-d"><span>A frame compression scheme for TV signals</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T8D05" class="question answer-a">
     <div class="title">T8D05 </div>
     <div class="description">Which of the following is an application of APRS (Automatic Packet Reporting System)?</div>
     <ol class="choices">
@@ -3661,7 +3668,7 @@
       <li class="choice-d"><span>Providing information on the number of stations signed into a repeater</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T8D06" class="question answer-b">
     <div class="title">T8D06 </div>
     <div class="description">What does the abbreviation PSK mean?</div>
     <ol class="choices">
@@ -3671,7 +3678,7 @@
       <li class="choice-d"><span>Phased Slide Keying</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T8D07" class="question answer-d">
     <div class="title">T8D07 </div>
     <div class="description">What is PSK31?</div>
     <ol class="choices">
@@ -3681,7 +3688,7 @@
       <li class="choice-d"><span>A low-rate data transmission mode</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T8D08" class="question answer-d">
     <div class="title">T8D08 </div>
     <div class="description">Which of the following may be included in packet transmissions?</div>
     <ol class="choices">
@@ -3691,7 +3698,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T8D09" class="question answer-c">
     <div class="title">T8D09 </div>
     <div class="description">What code is used when sending CW in the amateur bands?</div>
     <ol class="choices">
@@ -3701,7 +3708,7 @@
       <li class="choice-d"><span>Gray</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T8D10" class="question answer-d">
     <div class="title">T8D10 </div>
     <div class="description">Which of the following can be used to transmit CW in the amateur bands?</div>
     <ol class="choices">
@@ -3711,7 +3718,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T8D11" class="question answer-c">
     <div class="title">T8D11 </div>
     <div class="description">What is an ARQ transmission system?</div>
     <ol class="choices">
@@ -3723,7 +3730,7 @@
   </div>
   <h2 id="T9">T9 &mdash; Antennas and feed lines - [2 Exam Questions - 2 Groups]</h2>
   <h3 id="T9A">T9A &mdash; Antennas: vertical and horizontal polarization; concept of gain; common portable and mobile antennas; relationships between antenna length and frequency</h3>
-  <div class="question answer-c">
+  <div id="T9A01" class="question answer-c">
     <div class="title">T9A01 </div>
     <div class="description">What is a beam antenna?</div>
     <ol class="choices">
@@ -3733,7 +3740,7 @@
       <li class="choice-d"><span>An antenna that reverses the phase of received signals</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T9A02" class="question answer-b">
     <div class="title">T9A02 </div>
     <div class="description">Which of the following is true regarding vertical antennas?</div>
     <ol class="choices">
@@ -3743,7 +3750,7 @@
       <li class="choice-d"><span>The phase is reversed</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T9A03" class="question answer-b">
     <div class="title">T9A03 </div>
     <div class="description">Which of the following describes a simple dipole mounted so the conductor is parallel to the Earth's surface?</div>
     <ol class="choices">
@@ -3753,7 +3760,7 @@
       <li class="choice-d"><span>A vertically polarized antenna</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T9A04" class="question answer-a">
     <div class="title">T9A04 </div>
     <div class="description">What is a disadvantage of the “rubber duck” antenna supplied with most handheld radio transceivers?</div>
     <ol class="choices">
@@ -3763,7 +3770,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T9A05" class="question answer-c">
     <div class="title">T9A05 </div>
     <div class="description">How would you change a dipole antenna to make it resonant on a higher frequency?</div>
     <ol class="choices">
@@ -3773,7 +3780,7 @@
       <li class="choice-d"><span>Add capacitive loading to the ends of the radiating wires</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T9A06" class="question answer-c">
     <div class="title">T9A06 </div>
     <div class="description">What type of antennas are the quad, Yagi, and dish?</div>
     <ol class="choices">
@@ -3783,7 +3790,7 @@
       <li class="choice-d"><span>Isotropic antennas</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T9A07" class="question answer-a">
     <div class="title">T9A07 </div>
     <div class="description">What is a good reason not to use a “rubber duck” antenna inside your car?</div>
     <ol class="choices">
@@ -3793,7 +3800,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T9A08" class="question answer-c">
     <div class="title">T9A08 </div>
     <div class="description">What is the approximate length, in inches, of a quarter-wavelength vertical antenna for 146 MHz?</div>
     <ol class="choices">
@@ -3803,7 +3810,7 @@
       <li class="choice-d"><span>12</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T9A09" class="question answer-c">
     <div class="title">T9A09 </div>
     <div class="description">What is the approximate length, in inches, of a 6 meter 1/2-wavelength wire dipole antenna?</div>
     <ol class="choices">
@@ -3813,7 +3820,7 @@
       <li class="choice-d"><span>236</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T9A10" class="question answer-c">
     <div class="title">T9A10 </div>
     <div class="description">In which direction is the radiation strongest from a half-wave dipole antenna in free space?</div>
     <ol class="choices">
@@ -3823,7 +3830,7 @@
       <li class="choice-d"><span>In the direction of the feed line</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T9A11" class="question answer-c">
     <div class="title">T9A11 </div>
     <div class="description">What is meant by the gain of an antenna?</div>
     <ol class="choices">
@@ -3833,7 +3840,7 @@
       <li class="choice-d"><span>The increase in impedance on receive or transmit compared to a reference antenna</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T9A12" class="question answer-a">
     <div class="title">T9A12 </div>
     <div class="description">What is a reason to use a properly mounted 5/8 wavelength antenna for VHF or UHF mobile service?</div>
     <ol class="choices">
@@ -3843,7 +3850,7 @@
       <li class="choice-d"><span>The 5/8 wavelength antenna offers a 10-times power gain over a 1/4 wavelength design</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T9A13" class="question answer-c">
     <div class="title">T9A13 </div>
     <div class="description">Why are VHF or UHF mobile antennas often mounted in the center of the vehicle roof?</div>
     <ol class="choices">
@@ -3853,7 +3860,7 @@
       <li class="choice-d"><span>Roof mounted antennas are always the easiest to install</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T9A14" class="question answer-a">
     <div class="title">T9A14 </div>
     <div class="description">Which of the following terms describes a type of loading when referring to an antenna?</div>
     <ol class="choices">
@@ -3864,7 +3871,7 @@
     </ol>
   </div>
   <h3 id="T9B">T9B &mdash; Feed lines: types of feed lines; attenuation vs. frequency; SWR concepts; matching; weather protection; choosing RF connectors and feed lines</h3>
-  <div class="question answer-b">
+  <div id="T9B01" class="question answer-b">
     <div class="title">T9B01 </div>
     <div class="description">Why is it important to have a low SWR in an antenna system that uses coaxial cable feed line?</div>
     <ol class="choices">
@@ -3874,7 +3881,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T9B02" class="question answer-b">
     <div class="title">T9B02 </div>
     <div class="description">What is the impedance of the most commonly used coaxial cable in typical amateur radio installations?</div>
     <ol class="choices">
@@ -3884,7 +3891,7 @@
       <li class="choice-d"><span>12 ohms</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T9B03" class="question answer-a">
     <div class="title">T9B03 </div>
     <div class="description">Why is coaxial cable used more often than any other feed line for amateur radio antenna systems?</div>
     <ol class="choices">
@@ -3894,7 +3901,7 @@
       <li class="choice-d"><span>It is less expensive than any other types of feed line</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T9B04" class="question answer-a">
     <div class="title">T9B04 </div>
     <div class="description">What does an antenna tuner do?</div>
     <ol class="choices">
@@ -3904,7 +3911,7 @@
       <li class="choice-d"><span>It automatically selects the proper antenna for the frequency band being used</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T9B05" class="question answer-d">
     <div class="title">T9B05 </div>
     <div class="description">What generally happens as the frequency of a signal passing through coaxial cable is increased?</div>
     <ol class="choices">
@@ -3914,7 +3921,7 @@
       <li class="choice-d"><span>The loss increases</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T9B06" class="question answer-b">
     <div class="title">T9B06 </div>
     <div class="description">Which of the following connectors is most suitable for frequencies above 400 MHz?</div>
     <ol class="choices">
@@ -3924,7 +3931,7 @@
       <li class="choice-d"><span>A DB-25 connector</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T9B07" class="question answer-c">
     <div class="title">T9B07 </div>
     <div class="description">Which of the following is true of PL-259 type coax connectors?</div>
     <ol class="choices">
@@ -3934,7 +3941,7 @@
       <li class="choice-d"><span>They are a bayonet type connector</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T9B08" class="question answer-a">
     <div class="title">T9B08 </div>
     <div class="description">Why should coax connectors exposed to the weather be sealed against water intrusion?</div>
     <ol class="choices">
@@ -3944,7 +3951,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T9B09" class="question answer-b">
     <div class="title">T9B09 </div>
     <div class="description">What might cause erratic changes in SWR readings?</div>
     <ol class="choices">
@@ -3954,7 +3961,7 @@
       <li class="choice-d"><span>Interference from other stations is distorting your signal</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T9B10" class="question answer-c">
     <div class="title">T9B10 </div>
     <div class="description">What electrical difference exists between the smaller RG-58 and larger RG-8 coaxial cables?</div>
     <ol class="choices">
@@ -3964,7 +3971,7 @@
       <li class="choice-d"><span>RG-58 cable can handle higher power levels</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T9B11" class="question answer-c">
     <div class="title">T9B11 </div>
     <div class="description">Which of the following types of feed line has the lowest loss at VHF and UHF?</div>
     <ol class="choices">
@@ -3976,7 +3983,7 @@
   </div>
   <h2 id="T0">T0 &mdash; Electrical safety: AC and DC power circuits; antenna installation; RF hazards - [3 Exam Questions - 3 Groups]</h2>
   <h3 id="T0A">T0A &mdash; Power circuits and hazards: hazardous voltages; fuses and circuit breakers; grounding; lightning protection; battery safety; electrical code compliance</h3>
-  <div class="question answer-b">
+  <div id="T0A01" class="question answer-b">
     <div class="title">T0A01 </div>
     <div class="description">Which of the following is a safety hazard of a 12-volt storage battery?</div>
     <ol class="choices">
@@ -3986,7 +3993,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T0A02" class="question answer-d">
     <div class="title">T0A02 </div>
     <div class="description">How does current flowing through the body cause a health hazard?</div>
     <ol class="choices">
@@ -3996,7 +4003,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T0A03" class="question answer-c">
     <div class="title">T0A03 </div>
     <div class="description">What is connected to the green wire in a three-wire electrical AC plug?</div>
     <ol class="choices">
@@ -4006,7 +4013,7 @@
       <li class="choice-d"><span>The white wire</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T0A04" class="question answer-b">
     <div class="title">T0A04 </div>
     <div class="description">What is the purpose of a fuse in an electrical circuit?</div>
     <ol class="choices">
@@ -4016,7 +4023,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T0A05" class="question answer-c">
     <div class="title">T0A05 </div>
     <div class="description">Why is it unwise to install a 20-ampere fuse in the place of a 5-ampere fuse?</div>
     <ol class="choices">
@@ -4026,7 +4033,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T0A06" class="question answer-d">
     <div class="title">T0A06 </div>
     <div class="description">What is a good way to guard against electrical shock at your station?</div>
     <ol class="choices">
@@ -4036,7 +4043,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T0A07" class="question answer-d">
     <div class="title">T0A07 </div>
     <div class="description">Which of these precautions should be taken when installing devices for lightning protection in a coaxial cable feed line?</div>
     <ol class="choices">
@@ -4046,7 +4053,7 @@
       <li class="choice-d"><span>Ground all of the protectors to a common plate which is in turn connected to an external ground</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T0A08" class="question answer-a">
     <div class="title">T0A08 </div>
     <div class="description">What safety equipment should always be included in home-built equipment that is powered from 120V AC power circuits?</div>
     <ol class="choices">
@@ -4056,7 +4063,7 @@
       <li class="choice-d"><span>A capacitor across the AC power source</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T0A09" class="question answer-c">
     <div class="title">T0A09 </div>
     <div class="description">What kind of hazard is presented by a conventional 12-volt storage battery?</div>
     <ol class="choices">
@@ -4066,7 +4073,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T0A10" class="question answer-a">
     <div class="title">T0A10 </div>
     <div class="description">What can happen if a lead-acid storage battery is charged or discharged too quickly?</div>
     <ol class="choices">
@@ -4076,7 +4083,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T0A11" class="question answer-d">
     <div class="title">T0A11 </div>
     <div class="description">What kind of hazard might exist in a power supply when it is turned off and disconnected?</div>
     <ol class="choices">
@@ -4087,7 +4094,7 @@
     </ol>
   </div>
   <h3 id="T0B">T0B &mdash; Antenna safety: tower safety; erecting an antenna support; overhead power lines; installing an antenna</h3>
-  <div class="question answer-c">
+  <div id="T0B01" class="question answer-c">
     <div class="title">T0B01 </div>
     <div class="description">When should members of a tower work team wear a hard hat and safety glasses?</div>
     <ol class="choices">
@@ -4097,7 +4104,7 @@
       <li class="choice-d"><span>Only when the tower exceeds 30 feet in height</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T0B02" class="question answer-c">
     <div class="title">T0B02 </div>
     <div class="description">What is a good precaution to observe before climbing an antenna tower?</div>
     <ol class="choices">
@@ -4107,7 +4114,7 @@
       <li class="choice-d"><span>All of the these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T0B03" class="question answer-d">
     <div class="title">T0B03 </div>
     <div class="description">Under what circumstances is it safe to climb a tower without a helper or observer?</div>
     <ol class="choices">
@@ -4117,7 +4124,7 @@
       <li class="choice-d"><span>Never</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T0B04" class="question answer-c">
     <div class="title">T0B04 </div>
     <div class="description">Which of the following is an important safety precaution to observe when putting up an antenna tower?</div>
     <ol class="choices">
@@ -4127,7 +4134,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T0B05" class="question answer-c">
     <div class="title">T0B05 </div>
     <div class="description">What is the purpose of a gin pole?</div>
     <ol class="choices">
@@ -4137,7 +4144,7 @@
       <li class="choice-d"><span>To provide a temporary ground</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T0B06" class="question answer-d">
     <div class="title">T0B06 </div>
     <div class="description">What is the minimum safe distance from a power line to allow when installing an antenna?</div>
     <ol class="choices">
@@ -4147,7 +4154,7 @@
       <li class="choice-d"><span>So that if the antenna falls unexpectedly, no part of it can come closer than 10 feet to the power wires</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T0B07" class="question answer-c">
     <div class="title">T0B07 </div>
     <div class="description">Which of the following is an important safety rule to remember when using a crank-up tower?</div>
     <ol class="choices">
@@ -4157,7 +4164,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T0B08" class="question answer-c">
     <div class="title">T0B08 </div>
     <div class="description">What is considered to be a proper grounding method for a tower?</div>
     <ol class="choices">
@@ -4167,7 +4174,7 @@
       <li class="choice-d"><span>A connection between the tower base and a cold water pipe</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T0B09" class="question answer-c">
     <div class="title">T0B09 </div>
     <div class="description">Why should you avoid attaching an antenna to a utility pole?</div>
     <ol class="choices">
@@ -4177,7 +4184,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T0B10" class="question answer-c">
     <div class="title">T0B10 </div>
     <div class="description">Which of the following is true concerning grounding conductors used for lightning protection?</div>
     <ol class="choices">
@@ -4187,7 +4194,7 @@
       <li class="choice-d"><span>Common grounds must be avoided</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T0B11" class="question answer-b">
     <div class="title">T0B11 </div>
     <div class="description">Which of the following establishes grounding requirements for an amateur radio tower or antenna?</div>
     <ol class="choices">
@@ -4197,7 +4204,7 @@
       <li class="choice-d"><span>Underwriters Laboratories' recommended practices</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T0B12" class="question answer-c">
     <div class="title">T0B12 </div>
     <div class="description">Which of the following is good practice when installing ground wires on a tower for lightning protection?</div>
     <ol class="choices">
@@ -4208,7 +4215,7 @@
     </ol>
   </div>
   <h3 id="T0C">T0C &mdash; RF hazards: radiation exposure; proximity to antennas; recognized safe power levels; exposure to others; radiation types; duty cycle</h3>
-  <div class="question answer-d">
+  <div id="T0C01" class="question answer-d">
     <div class="title">T0C01 </div>
     <div class="description">What type of radiation are VHF and UHF radio signals?</div>
     <ol class="choices">
@@ -4218,7 +4225,7 @@
       <li class="choice-d"><span>Non-ionizing radiation</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T0C02" class="question answer-b">
     <div class="title">T0C02 </div>
     <div class="description">Which of the following frequencies has the lowest value for Maximum Permissible Exposure limit?</div>
     <ol class="choices">
@@ -4228,7 +4235,7 @@
       <li class="choice-d"><span>1296 MHz</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T0C03" class="question answer-c">
     <div class="title">T0C03 </div>
     <div class="description">What is the maximum power level that an amateur radio station may use at VHF frequencies before an RF exposure evaluation is required?</div>
     <ol class="choices">
@@ -4238,7 +4245,7 @@
       <li class="choice-d"><span>50 watts PEP reflected power</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T0C04" class="question answer-d">
     <div class="title">T0C04 </div>
     <div class="description">What factors affect the RF exposure of people near an amateur station antenna?</div>
     <ol class="choices">
@@ -4248,7 +4255,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T0C05" class="question answer-d">
     <div class="title">T0C05 </div>
     <div class="description">Why do exposure limits vary with frequency?</div>
     <ol class="choices">
@@ -4258,7 +4265,7 @@
       <li class="choice-d"><span>The human body absorbs more RF energy at some frequencies than at others</span></li>
     </ol>
   </div>
-  <div class="question answer-d">
+  <div id="T0C06" class="question answer-d">
     <div class="title">T0C06 </div>
     <div class="description">Which of the following is an acceptable method to determine that your station complies with FCC RF exposure regulations?</div>
     <ol class="choices">
@@ -4268,7 +4275,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T0C07" class="question answer-b">
     <div class="title">T0C07 </div>
     <div class="description">What could happen if a person accidentally touched your antenna while you were transmitting?</div>
     <ol class="choices">
@@ -4278,7 +4285,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T0C08" class="question answer-a">
     <div class="title">T0C08 </div>
     <div class="description">Which of the following actions might amateur operators take to prevent exposure to RF radiation in excess of FCC-supplied limits?</div>
     <ol class="choices">
@@ -4288,7 +4295,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-b">
+  <div id="T0C09" class="question answer-b">
     <div class="title">T0C09 </div>
     <div class="description">How can you make sure your station stays in compliance with RF safety regulations?</div>
     <ol class="choices">
@@ -4298,7 +4305,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T0C10" class="question answer-a">
     <div class="title">T0C10 </div>
     <div class="description">Why is duty cycle one of the factors used to determine safe RF radiation exposure levels?</div>
     <ol class="choices">
@@ -4308,7 +4315,7 @@
       <li class="choice-d"><span>It takes into account the thermal effects of the final amplifier</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T0C11" class="question answer-c">
     <div class="title">T0C11 </div>
     <div class="description">What is the definition of duty cycle during the averaging time for RF exposure?</div>
     <ol class="choices">
@@ -4318,7 +4325,7 @@
       <li class="choice-d"><span>The percentage of time that a transmitter is not transmitting</span></li>
     </ol>
   </div>
-  <div class="question answer-a">
+  <div id="T0C12" class="question answer-a">
     <div class="title">T0C12 </div>
     <div class="description">How does RF radiation differ from ionizing radiation (radioactivity)?</div>
     <ol class="choices">
@@ -4328,7 +4335,7 @@
       <li class="choice-d"><span>RF radiation is perfectly safe</span></li>
     </ol>
   </div>
-  <div class="question answer-c">
+  <div id="T0C13" class="question answer-c">
     <div class="title">T0C13 </div>
     <div class="description">If the averaging time for exposure is 6 minutes, how much power density is permitted if the signal is present for 3 minutes and absent for 3 minutes rather than being present for the entire 6 minutes?</div>
     <ol class="choices">
