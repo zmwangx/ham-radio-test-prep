@@ -10,8 +10,14 @@
     h2 { font-size: 1.3em; }
     h3 { font-size: 1.1em; }
     h1, h2, h3 { padding: 0; margin: 1em 0; }
+    p { margin: 0; }
     footer { font-size: 0.8em; color: #999; text-align: center; margin: 1em; }
     a { color: inherit; }
+    #toc { list-style-type: none; padding: 0 0 0 0.3em; }
+    #toc ul { list-style-type: none; }
+    #toc span { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+    #toc > li { margin-bottom: 0.5em; }
+    #toc > li > span, #toc a { font-weight: bold; }
     .question { margin: 1em 0; }
     .question .title { display: inline-block; font-weight: bold; cursor: pointer; }
     .question .title { user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; }
@@ -41,8 +47,103 @@
 </head>
 <body class="done-show-titles">
   <h1>Amateur Radio Technician Class Question Pool (2014&ndash;2018)</h1>
-  <h2 id="T1">T1 &mdash; FCC Rules, descriptions and definitions for the Amateur Radio Service, operator and station license responsibilities - [6 Exam Questions - 6 Groups]</h2>
-  <h3 id="T1A">T1A &mdash; Amateur Radio Service: purpose and permissible use of the Amateur Radio Service; operator/primary station license grant; where FCC rules are codified; basis and purpose of FCC rules; meanings of basic terms used in FCC rules; interference; spectrum management</h3>
+  <ul id="toc">
+    <li><a href="#instructions">Instructions</a></li>
+    <li>
+      <span><a href="#T1">T1</a> &mdash; FCC Rules, descriptions and definitions for the Amateur Radio Service, operator and station license responsibilities - [6 Exam Questions - 6 Groups]</span>
+      <ul>
+        <li><span><a href="#T1A">T1A</a> &mdash; Amateur Radio Service: purpose and permissible use of the Amateur Radio Service; operator/primary station license grant; where FCC rules are codified; basis and purpose of FCC rules; meanings of basic terms used in FCC rules; interference; spectrum management</span></li>
+        <li><span><a href="#T1B">T1B</a> &mdash; Authorized frequencies: frequency allocations; ITU regions; emission modes; restricted sub-bands; spectrum sharing; transmissions near band edges</span></li>
+        <li><span><a href="#T1C">T1C</a> &mdash; Operator licensing: operator classes; sequential, special event, and vanity call sign systems; international communications; reciprocal operation; station license and licensee; places where the amateur service is regulated by the FCC; name and address on FCC license database; license term; renewal; grace period</span></li>
+        <li><span><a href="#T1D">T1D</a> &mdash; Authorized and prohibited transmission: communications with other countries; music; exchange of information with other services; indecent language; compensation for use of station; retransmission of other amateur signals; codes and ciphers; sale of equipment; unidentified transmissions; broadcasting</span></li>
+        <li><span><a href="#T1E">T1E</a> &mdash; Control operator and control types: control operator required; eligibility; designation of control operator; privileges and duties; control point; local, automatic and remote control; location of control operator</span></li>
+        <li><span><a href="#T1F">T1F</a> &mdash; Station identification; repeaters; third party communications; club stations; FCC inspection</span></li>
+      </ul>
+    </li>
+    <li>
+      <span><a href="#T2">T2</a> &mdash; Operating Procedures [3 Exam Questions - 3 Groups]</span>
+      <ul>
+        <li><span><a href="#T2A">T2A</a> &mdash; Station operation: choosing an operating frequency; calling another station; test transmissions; procedural signs; use of minimum power; choosing an operating frequency; band plans; calling frequencies; repeater offsets</span></li>
+        <li><span><a href="#T2B">T2B</a> &mdash; VHF/UHF operating practices: SSB phone; FM repeater; simplex; splits and shifts; CTCSS; DTMF; tone squelch; carrier squelch; phonetics; operational problem resolution; Q signals</span></li>
+        <li><span><a href="#T2C">T2C</a> &mdash; Public service: emergency and non-emergency operations; applicability of FCC rules; RACES and ARES; net and traffic procedures; emergency restrictions</span></li>
+      </ul>
+    </li>
+    <li>
+      <span><a href="#T3">T3</a> &mdash; Radio wave characteristics: properties of radio waves; propagation modes - [3 Exam Questions - 3 Groups]</span>
+      <ul>
+        <li><span><a href="#T3A">T3A</a> &mdash; Radio wave characteristics: how a radio signal travels; fading; multipath; wavelength vs. penetration; antenna orientation</span></li>
+        <li><span><a href="#T3B">T3B</a> &mdash; Radio and electromagnetic wave properties: the electromagnetic spectrum; wavelength vs. frequency; velocity of electromagnetic waves; calculating wavelength</span></li>
+        <li><span><a href="#T3C">T3C</a> &mdash; Propagation modes: line of sight; sporadic E; meteor and auroral scatter and reflections; tropospheric ducting; F layer skip; radio horizon</span></li>
+      </ul>
+    </li>
+    <li>
+      <span><a href="#T4">T4</a> &mdash; Amateur radio practices and station set up - [2 Exam Questions - 2 Groups]</span>
+      <ul>
+        <li><span><a href="#T4A">T4A</a> &mdash; Station setup: connecting microphones; reducing unwanted emissions; power source; connecting a computer; RF grounding; connecting digital equipment; connecting an SWR meter</span></li>
+        <li><span><a href="#T4B">T4B</a> &mdash; Operating controls: tuning; use of filters; squelch function; AGC; repeater offset; memory channels</span></li>
+      </ul>
+    </li>
+    <li>
+      <span><a href="#T5">T5</a> &mdash; Electrical principles: math for electronics; electronic principles; Ohm’s Law - [4 Exam Questions - 4 Groups]</span>
+      <ul>
+        <li><span><a href="#T5A">T5A</a> &mdash; Electrical principles, units, and terms: current and voltage; conductors and insulators; alternating and direct current</span></li>
+        <li><span><a href="#T5B">T5B</a> &mdash; Math for electronics: conversion of electrical units; decibels; the metric system</span></li>
+        <li><span><a href="#T5C">T5C</a> &mdash; Electronic principles: capacitance; inductance; current flow in circuits; alternating current; definition of RF; DC power calculations; impedance</span></li>
+        <li><span><a href="#T5D">T5D</a> &mdash; Ohm’s Law: formulas and usage</span></li>
+      </ul>
+    </li>
+    <li>
+      <span><a href="#T6">T6</a> &mdash; Electrical components: semiconductors; circuit diagrams; component functions - [4 Exam Questions - 4 Groups]</span>
+      <ul>
+        <li><span><a href="#T6A">T6A</a> &mdash; Electrical components: fixed and variable resistors; capacitors and inductors; fuses; switches; batteries</span></li>
+        <li><span><a href="#T6B">T6B</a> &mdash; Semiconductors: basic principles and applications of solid state devices; diodes and transistors</span></li>
+        <li><span><a href="#T6C">T6C</a> &mdash; Circuit diagrams; schematic symbols</span></li>
+        <li><span><a href="#T6D">T6D</a> &mdash; Component functions: rectification; switches; indicators; power supply components; resonant circuit; shielding; power transformers; integrated circuits</span></li>
+      </ul>
+    </li>
+    <li>
+      <span><a href="#T7">T7</a> &mdash; Station equipment: common transmitter and receiver problems; antenna measurements; troubleshooting; basic repair and testing - [4 Exam Questions - 4 Groups]</span>
+      <ul>
+        <li><span><a href="#T7A">T7A</a> &mdash; Station equipment: receivers; transmitters; transceivers; modulation; transverters; low power and weak signal operation; transmit and receive amplifiers</span></li>
+        <li><span><a href="#T7B">T7B</a> &mdash; Common transmitter and receiver problems: symptoms of overload and overdrive; distortion; causes of interference; interference and consumer electronics; part 15 devices; over and under modulation; RF feedback; off frequency signals; fading and noise; problems with digital communications interfaces</span></li>
+        <li><span><a href="#T7C">T7C</a> &mdash; Antenna measurements and troubleshooting: measuring SWR; dummy loads; coaxial cables; feed line failure modes</span></li>
+        <li><span><a href="#T7D">T7D</a> &mdash; Basic repair and testing: soldering; using basic test instruments; connecting a voltmeter, ammeter, or ohmmeter</span></li>
+      </ul>
+    </li>
+    <li>
+      <span><a href="#T8">T8</a> &mdash; Modulation modes: amateur satellite operation; operating activities; non-voice communications - [4 Exam Questions - 4 Groups]</span>
+      <ul>
+        <li><span><a href="#T8A">T8A</a> &mdash; Modulation modes: bandwidth of various signals; choice of emission type</span></li>
+        <li><span><a href="#T8B">T8B</a> &mdash; Amateur satellite operation; Doppler shift, basic orbits, operating protocols; control operator, transmitter power considerations; satellite tracking; digital modes</span></li>
+        <li><span><a href="#T8C">T8C</a> &mdash; Operating activities: radio direction finding; radio control; contests; linking over the Internet; grid locators</span></li>
+        <li><span><a href="#T8D">T8D</a> &mdash; Non-voice communications: image signals; digital modes; CW; packet; PSK31; APRS; error detection and correction; NTSC</span></li>
+      </ul>
+    </li>
+    <li>
+      <span><a href="#T9">T9</a> &mdash; Antennas and feed lines - [2 Exam Questions - 2 Groups]</span>
+      <ul>
+        <li><span><a href="#T9A">T9A</a> &mdash; Antennas: vertical and horizontal polarization; concept of gain; common portable and mobile antennas; relationships between antenna length and frequency</span></li>
+        <li><span><a href="#T9B">T9B</a> &mdash; Feed lines: types of feed lines; attenuation vs. frequency; SWR concepts; matching; weather protection; choosing RF connectors and feed lines</span></li>
+      </ul>
+    </li>
+    <li>
+      <span><a href="#T0">T0</a> &mdash; Electrical safety: AC and DC power circuits; antenna installation; RF hazards - [3 Exam Questions - 3 Groups]</span>
+      <ul>
+        <li><span><a href="#T0A">T0A</a> &mdash; Power circuits and hazards: hazardous voltages; fuses and circuit breakers; grounding; lightning protection; battery safety; electrical code compliance</span></li>
+        <li><span><a href="#T0B">T0B</a> &mdash; Antenna safety: tower safety; erecting an antenna support; overhead power lines; installing an antenna</span></li>
+        <li><span><a href="#T0C">T0C</a> &mdash; RF hazards: radiation exposure; proximity to antennas; recognized safe power levels; exposure to others; radiation types; duty cycle</span></li>
+      </ul>
+    </li>
+  </ul>
+  <h2 id="instructions"><a href="#toc">Instructions</a></h2>
+  <p>Press the &lsquo;a&rsquo; key to toggle answers.</p>
+  <p>When the answers are hidden, hover mouse over the title of a question to reveal its answer.</p>
+  <p>Click the title of a question to mark it as done.</p>
+  <p>Press the &lsquo;s&rsquo; key to cycle through display modes of the questions marked as done. There are three modes: show all, show titles only (default), and hide.</p>
+  <p>Press the &lsquo;d&rsquo; key to show the number of questions marked as done.</p>
+  <p>Display modes, marked questions and scroll position are saved in local storage, so you can close the page at any time and pick up your progress later.</p>
+  <h2 id="T1"><a href="#toc">T1</a> &mdash; FCC Rules, descriptions and definitions for the Amateur Radio Service, operator and station license responsibilities - [6 Exam Questions - 6 Groups]</h2>
+  <h3 id="T1A"><a href="#toc">T1A</a> &mdash; Amateur Radio Service: purpose and permissible use of the Amateur Radio Service; operator/primary station license grant; where FCC rules are codified; basis and purpose of FCC rules; meanings of basic terms used in FCC rules; interference; spectrum management</h3>
   <div id="T1A01" class="question answer-c">
     <div class="title">T1A01 [97.1]</div>
     <div class="description">Which of the following is a purpose of the Amateur Radio Service as stated in the FCC rules and regulations?</div>
@@ -183,7 +284,7 @@
       <li class="choice-d"><span>Change to CW mode, because this would not likely cause interference</span></li>
     </ol>
   </div>
-  <h3 id="T1B">T1B &mdash; Authorized frequencies: frequency allocations; ITU regions; emission modes; restricted sub-bands; spectrum sharing; transmissions near band edges</h3>
+  <h3 id="T1B"><a href="#toc">T1B</a> &mdash; Authorized frequencies: frequency allocations; ITU regions; emission modes; restricted sub-bands; spectrum sharing; transmissions near band edges</h3>
   <div id="T1B01" class="question answer-b">
     <div class="title">T1B01 </div>
     <div class="description">What is the ITU?</div>
@@ -314,7 +415,7 @@
       <li class="choice-d"><span>Fast-scan television</span></li>
     </ol>
   </div>
-  <h3 id="T1C">T1C &mdash; Operator licensing: operator classes; sequential, special event, and vanity call sign systems; international communications; reciprocal operation; station license and licensee; places where the amateur service is regulated by the FCC; name and address on FCC license database; license term; renewal; grace period</h3>
+  <h3 id="T1C"><a href="#toc">T1C</a> &mdash; Operator licensing: operator classes; sequential, special event, and vanity call sign systems; international communications; reciprocal operation; station license and licensee; places where the amateur service is regulated by the FCC; name and address on FCC license database; license term; renewal; grace period</h3>
   <div id="T1C01" class="question answer-c">
     <div class="title">T1C01 [97.3(a)(11)(iii)]</div>
     <div class="description">Which type of call sign has a single letter in both its prefix and suffix?</div>
@@ -455,7 +556,7 @@
       <li class="choice-d"><span>Only the person named as trustee on the club station license grant</span></li>
     </ol>
   </div>
-  <h3 id="T1D">T1D &mdash; Authorized and prohibited transmission: communications with other countries; music; exchange of information with other services; indecent language; compensation for use of station; retransmission of other amateur signals; codes and ciphers; sale of equipment; unidentified transmissions; broadcasting</h3>
+  <h3 id="T1D"><a href="#toc">T1D</a> &mdash; Authorized and prohibited transmission: communications with other countries; music; exchange of information with other services; indecent language; compensation for use of station; retransmission of other amateur signals; codes and ciphers; sale of equipment; unidentified transmissions; broadcasting</h3>
   <div id="T1D01" class="question answer-a">
     <div class="title">T1D01 [97.111(a)(1)]</div>
     <div class="description">With which countries are FCC-licensed amateur stations prohibited from exchanging communications?</div>
@@ -576,7 +677,7 @@
       <li class="choice-d"><span>At any time as long as the material being transmitted did not originate from a commercial broadcast station</span></li>
     </ol>
   </div>
-  <h3 id="T1E">T1E &mdash; Control operator and control types: control operator required; eligibility; designation of control operator; privileges and duties; control point; local, automatic and remote control; location of control operator</h3>
+  <h3 id="T1E"><a href="#toc">T1E</a> &mdash; Control operator and control types: control operator required; eligibility; designation of control operator; privileges and duties; control point; local, automatic and remote control; location of control operator</h3>
   <div id="T1E01" class="question answer-d">
     <div class="title">T1E01 [97.7(a)]</div>
     <div class="description">When is an amateur station permitted to transmit without a control operator?</div>
@@ -697,7 +798,7 @@
       <li class="choice-d"><span>When using a club station whose trustee is an Extra Class operator licensee</span></li>
     </ol>
   </div>
-  <h3 id="T1F">T1F &mdash; Station identification; repeaters; third party communications; club stations; FCC inspection</h3>
+  <h3 id="T1F"><a href="#toc">T1F</a> &mdash; Station identification; repeaters; third party communications; club stations; FCC inspection</h3>
   <div id="T1F01" class="question answer-a">
     <div class="title">T1F01 </div>
     <div class="description">What type of identification is being used when identifying a station on the air as Race Headquarters?</div>
@@ -828,8 +929,8 @@
       <li class="choice-d"><span>Only when presented with a valid warrant by an FCC official or government agent</span></li>
     </ol>
   </div>
-  <h2 id="T2">T2 &mdash; Operating Procedures [3 Exam Questions - 3 Groups]</h2>
-  <h3 id="T2A">T2A &mdash; Station operation: choosing an operating frequency; calling another station; test transmissions; procedural signs; use of minimum power; choosing an operating frequency; band plans; calling frequencies; repeater offsets</h3>
+  <h2 id="T2"><a href="#toc">T2</a> &mdash; Operating Procedures [3 Exam Questions - 3 Groups]</h2>
+  <h3 id="T2A"><a href="#toc">T2A</a> &mdash; Station operation: choosing an operating frequency; calling another station; test transmissions; procedural signs; use of minimum power; choosing an operating frequency; band plans; calling frequencies; repeater offsets</h3>
   <div id="T2A01" class="question answer-b">
     <div class="title">T2A01 </div>
     <div class="description">What is the most common repeater frequency offset in the 2 meter band?</div>
@@ -950,7 +1051,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <h3 id="T2B">T2B &mdash; VHF/UHF operating practices: SSB phone; FM repeater; simplex; splits and shifts; CTCSS; DTMF; tone squelch; carrier squelch; phonetics; operational problem resolution; Q signals</h3>
+  <h3 id="T2B"><a href="#toc">T2B</a> &mdash; VHF/UHF operating practices: SSB phone; FM repeater; simplex; splits and shifts; CTCSS; DTMF; tone squelch; carrier squelch; phonetics; operational problem resolution; Q signals</h3>
   <div id="T2B01" class="question answer-c">
     <div class="title">T2B01 </div>
     <div class="description">What is the term used to describe an amateur station that is transmitting and receiving on the same frequency?</div>
@@ -1081,7 +1182,7 @@
       <li class="choice-d"><span>It is permitted only on when power is limited to no more than 100 watts</span></li>
     </ol>
   </div>
-  <h3 id="T2C">T2C &mdash; Public service: emergency and non-emergency operations; applicability of FCC rules; RACES and ARES; net and traffic procedures; emergency restrictions</h3>
+  <h3 id="T2C"><a href="#toc">T2C</a> &mdash; Public service: emergency and non-emergency operations; applicability of FCC rules; RACES and ARES; net and traffic procedures; emergency restrictions</h3>
   <div id="T2C01" class="question answer-d">
     <div class="title">T2C01 [97.103(a)]</div>
     <div class="description">When do the FCC rules NOT apply to the operation of an amateur station?</div>
@@ -1202,8 +1303,8 @@
       <li class="choice-d"><span>A training program that certifies amateur operators for membership in the Radio Amateur Civil Emergency Service</span></li>
     </ol>
   </div>
-  <h2 id="T3">T3 &mdash; Radio wave characteristics: properties of radio waves; propagation modes - [3 Exam Questions - 3 Groups]</h2>
-  <h3 id="T3A">T3A &mdash; Radio wave characteristics: how a radio signal travels; fading; multipath; wavelength vs. penetration; antenna orientation</h3>
+  <h2 id="T3"><a href="#toc">T3</a> &mdash; Radio wave characteristics: properties of radio waves; propagation modes - [3 Exam Questions - 3 Groups]</h2>
+  <h3 id="T3A"><a href="#toc">T3A</a> &mdash; Radio wave characteristics: how a radio signal travels; fading; multipath; wavelength vs. penetration; antenna orientation</h3>
   <div id="T3A01" class="question answer-d">
     <div class="title">T3A01 </div>
     <div class="description">What should you do if another operator reports that your station’s 2 meter signals were strong just a moment ago, but now they are weak or distorted?</div>
@@ -1314,7 +1415,7 @@
       <li class="choice-d"><span>The magnetosphere</span></li>
     </ol>
   </div>
-  <h3 id="T3B">T3B &mdash; Radio and electromagnetic wave properties: the electromagnetic spectrum; wavelength vs. frequency; velocity of electromagnetic waves; calculating wavelength</h3>
+  <h3 id="T3B"><a href="#toc">T3B</a> &mdash; Radio and electromagnetic wave properties: the electromagnetic spectrum; wavelength vs. frequency; velocity of electromagnetic waves; calculating wavelength</h3>
   <div id="T3B01" class="question answer-c">
     <div class="title">T3B01 </div>
     <div class="description">What is the name for the distance a radio wave travels during one complete cycle?</div>
@@ -1425,7 +1526,7 @@
       <li class="choice-d"><span>186,000 miles per hour</span></li>
     </ol>
   </div>
-  <h3 id="T3C">T3C &mdash; Propagation modes: line of sight; sporadic E; meteor and auroral scatter and reflections; tropospheric ducting; F layer skip; radio horizon</h3>
+  <h3 id="T3C"><a href="#toc">T3C</a> &mdash; Propagation modes: line of sight; sporadic E; meteor and auroral scatter and reflections; tropospheric ducting; F layer skip; radio horizon</h3>
   <div id="T3C01" class="question answer-c">
     <div class="title">T3C01 </div>
     <div class="description">Why are direct (not via a repeater) UHF signals rarely heard from stations outside your local coverage area?</div>
@@ -1546,8 +1647,8 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <h2 id="T4">T4 &mdash; Amateur radio practices and station set up - [2 Exam Questions - 2 Groups]</h2>
-  <h3 id="T4A">T4A &mdash; Station setup: connecting microphones; reducing unwanted emissions; power source; connecting a computer; RF grounding; connecting digital equipment; connecting an SWR meter</h3>
+  <h2 id="T4"><a href="#toc">T4</a> &mdash; Amateur radio practices and station set up - [2 Exam Questions - 2 Groups]</h2>
+  <h3 id="T4A"><a href="#toc">T4A</a> &mdash; Station setup: connecting microphones; reducing unwanted emissions; power source; connecting a computer; RF grounding; connecting digital equipment; connecting an SWR meter</h3>
   <div id="T4A01" class="question answer-b">
     <div class="title">T4A01 </div>
     <div class="description">Which of the following is true concerning the microphone connectors on amateur transceivers?</div>
@@ -1668,7 +1769,7 @@
       <li class="choice-d"><span>Noise on the vehicle’s electrical system is being transmitted along with your speech audio</span></li>
     </ol>
   </div>
-  <h3 id="T4B">T4B &mdash; Operating controls: tuning; use of filters; squelch function; AGC; repeater offset; memory channels</h3>
+  <h3 id="T4B"><a href="#toc">T4B</a> &mdash; Operating controls: tuning; use of filters; squelch function; AGC; repeater offset; memory channels</h3>
   <div id="T4B01" class="question answer-b">
     <div class="title">T4B01 </div>
     <div class="description">What may happen if a transmitter is operated with the microphone gain set too high?</div>
@@ -1789,8 +1890,8 @@
       <li class="choice-d"><span>An asymmetric goniometer control used for antenna matching</span></li>
     </ol>
   </div>
-  <h2 id="T5">T5 &mdash; Electrical principles: math for electronics; electronic principles; Ohm’s Law - [4 Exam Questions - 4 Groups]</h2>
-  <h3 id="T5A">T5A &mdash; Electrical principles, units, and terms: current and voltage; conductors and insulators; alternating and direct current</h3>
+  <h2 id="T5"><a href="#toc">T5</a> &mdash; Electrical principles: math for electronics; electronic principles; Ohm’s Law - [4 Exam Questions - 4 Groups]</h2>
+  <h3 id="T5A"><a href="#toc">T5A</a> &mdash; Electrical principles, units, and terms: current and voltage; conductors and insulators; alternating and direct current</h3>
   <div id="T5A01" class="question answer-d">
     <div class="title">T5A01 </div>
     <div class="description">Electrical current is measured in which of the following units?</div>
@@ -1911,7 +2012,7 @@
       <li class="choice-d"><span>Frequency</span></li>
     </ol>
   </div>
-  <h3 id="T5B">T5B &mdash; Math for electronics: conversion of electrical units; decibels; the metric system</h3>
+  <h3 id="T5B"><a href="#toc">T5B</a> &mdash; Math for electronics: conversion of electrical units; decibels; the metric system</h3>
   <div id="T5B01" class="question answer-c">
     <div class="title">T5B01 </div>
     <div class="description">How many milliamperes is 1.5 amperes?</div>
@@ -2042,7 +2143,7 @@
       <li class="choice-d"><span>2425 GHz</span></li>
     </ol>
   </div>
-  <h3 id="T5C">T5C &mdash; Electronic principles: capacitance; inductance; current flow in circuits; alternating current; definition of RF; DC power calculations; impedance</h3>
+  <h3 id="T5C"><a href="#toc">T5C</a> &mdash; Electronic principles: capacitance; inductance; current flow in circuits; alternating current; definition of RF; DC power calculations; impedance</h3>
   <div id="T5C01" class="question answer-d">
     <div class="title">T5C01 </div>
     <div class="description">What is the ability to store energy in an electric field called?</div>
@@ -2173,7 +2274,7 @@
       <li class="choice-d"><span>Ohms</span></li>
     </ol>
   </div>
-  <h3 id="T5D">T5D &mdash; Ohm’s Law: formulas and usage</h3>
+  <h3 id="T5D"><a href="#toc">T5D</a> &mdash; Ohm’s Law: formulas and usage</h3>
   <div id="T5D01" class="question answer-b">
     <div class="title">T5D01 </div>
     <div class="description">What formula is used to calculate current in a circuit?</div>
@@ -2294,8 +2395,8 @@
       <li class="choice-d"><span>20 volts</span></li>
     </ol>
   </div>
-  <h2 id="T6">T6 &mdash; Electrical components: semiconductors; circuit diagrams; component functions - [4 Exam Questions - 4 Groups]</h2>
-  <h3 id="T6A">T6A &mdash; Electrical components: fixed and variable resistors; capacitors and inductors; fuses; switches; batteries</h3>
+  <h2 id="T6"><a href="#toc">T6</a> &mdash; Electrical components: semiconductors; circuit diagrams; component functions - [4 Exam Questions - 4 Groups]</h2>
+  <h3 id="T6A"><a href="#toc">T6A</a> &mdash; Electrical components: fixed and variable resistors; capacitors and inductors; fuses; switches; batteries</h3>
   <div id="T6A01" class="question answer-b">
     <div class="title">T6A01 </div>
     <div class="description">What electrical component is used to oppose the flow of current in a DC circuit?</div>
@@ -2406,7 +2507,7 @@
       <li class="choice-d"><span>Lithium-ion</span></li>
     </ol>
   </div>
-  <h3 id="T6B">T6B &mdash; Semiconductors: basic principles and applications of solid state devices; diodes and transistors</h3>
+  <h3 id="T6B"><a href="#toc">T6B</a> &mdash; Semiconductors: basic principles and applications of solid state devices; diodes and transistors</h3>
   <div id="T6B01" class="question answer-d">
     <div class="title">T6B01 </div>
     <div class="description">What class of electronic components is capable of using a voltage or current signal to control current flow?</div>
@@ -2527,7 +2628,7 @@
       <li class="choice-d"><span>On resistance</span></li>
     </ol>
   </div>
-  <h3 id="T6C">T6C &mdash; Circuit diagrams; schematic symbols</h3>
+  <h3 id="T6C"><a href="#toc">T6C</a> &mdash; Circuit diagrams; schematic symbols</h3>
   <div id="T6C01" class="question answer-c">
     <div class="title">T6C01 </div>
     <div class="description">What is the name for standardized representations of components in an electrical wiring diagram?</div>
@@ -2658,7 +2759,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <h3 id="T6D">T6D &mdash; Component functions: rectification; switches; indicators; power supply components; resonant circuit; shielding; power transformers; integrated circuits</h3>
+  <h3 id="T6D"><a href="#toc">T6D</a> &mdash; Component functions: rectification; switches; indicators; power supply components; resonant circuit; shielding; power transformers; integrated circuits</h3>
   <div id="T6D01" class="question answer-b">
     <div class="title">T6D01 </div>
     <div class="description">Which of the following devices or circuits changes an alternating current into a varying direct current signal?</div>
@@ -2779,8 +2880,8 @@
       <li class="choice-d"><span>To couple the wire to other signals</span></li>
     </ol>
   </div>
-  <h2 id="T7">T7 &mdash; Station equipment: common transmitter and receiver problems; antenna measurements; troubleshooting; basic repair and testing - [4 Exam Questions - 4 Groups]</h2>
-  <h3 id="T7A">T7A &mdash; Station equipment: receivers; transmitters; transceivers; modulation; transverters; low power and weak signal operation; transmit and receive amplifiers</h3>
+  <h2 id="T7"><a href="#toc">T7</a> &mdash; Station equipment: common transmitter and receiver problems; antenna measurements; troubleshooting; basic repair and testing - [4 Exam Questions - 4 Groups]</h2>
+  <h3 id="T7A"><a href="#toc">T7A</a> &mdash; Station equipment: receivers; transmitters; transceivers; modulation; transverters; low power and weak signal operation; transmit and receive amplifiers</h3>
   <div id="T7A01" class="question answer-b">
     <div class="title">T7A01 </div>
     <div class="description">Which term describes the ability of a receiver to detect the presence of a signal?</div>
@@ -2891,7 +2992,7 @@
       <li class="choice-d"><span>At the receiver's audio output</span></li>
     </ol>
   </div>
-  <h3 id="T7B">T7B &mdash; Common transmitter and receiver problems: symptoms of overload and overdrive; distortion; causes of interference; interference and consumer electronics; part 15 devices; over and under modulation; RF feedback; off frequency signals; fading and noise; problems with digital communications interfaces</h3>
+  <h3 id="T7B"><a href="#toc">T7B</a> &mdash; Common transmitter and receiver problems: symptoms of overload and overdrive; distortion; causes of interference; interference and consumer electronics; part 15 devices; over and under modulation; RF feedback; off frequency signals; fading and noise; problems with digital communications interfaces</h3>
   <div id="T7B01" class="question answer-d">
     <div class="title">T7B01 </div>
     <div class="description">What can you do if you are told your FM handheld or mobile transceiver is over-deviating?</div>
@@ -3012,7 +3113,7 @@
       <li class="choice-d"><span>Be sure all TV coaxial connectors are installed properly</span></li>
     </ol>
   </div>
-  <h3 id="T7C">T7C &mdash; Antenna measurements and troubleshooting: measuring SWR; dummy loads; coaxial cables; feed line failure modes</h3>
+  <h3 id="T7C"><a href="#toc">T7C</a> &mdash; Antenna measurements and troubleshooting: measuring SWR; dummy loads; coaxial cables; feed line failure modes</h3>
   <div id="T7C01" class="question answer-a">
     <div class="title">T7C01 </div>
     <div class="description">What is the primary purpose of a dummy load?</div>
@@ -3143,7 +3244,7 @@
       <li class="choice-d"><span>A 50 ohm reactance used to terminate a transmission line</span></li>
     </ol>
   </div>
-  <h3 id="T7D">T7D &mdash; Basic repair and testing: soldering; using basic test instruments; connecting a voltmeter, ammeter, or ohmmeter</h3>
+  <h3 id="T7D"><a href="#toc">T7D</a> &mdash; Basic repair and testing: soldering; using basic test instruments; connecting a voltmeter, ammeter, or ohmmeter</h3>
   <div id="T7D01" class="question answer-b">
     <div class="title">T7D01 </div>
     <div class="description">Which instrument would you use to measure electric potential or electromotive force?</div>
@@ -3264,8 +3365,8 @@
       <li class="choice-d"><span>Ensure that the voltmeter is set to the correct frequency</span></li>
     </ol>
   </div>
-  <h2 id="T8">T8 &mdash; Modulation modes: amateur satellite operation; operating activities; non-voice communications - [4 Exam Questions - 4 Groups]</h2>
-  <h3 id="T8A">T8A &mdash; Modulation modes: bandwidth of various signals; choice of emission type</h3>
+  <h2 id="T8"><a href="#toc">T8</a> &mdash; Modulation modes: amateur satellite operation; operating activities; non-voice communications - [4 Exam Questions - 4 Groups]</h2>
+  <h3 id="T8A"><a href="#toc">T8A</a> &mdash; Modulation modes: bandwidth of various signals; choice of emission type</h3>
   <div id="T8A01" class="question answer-c">
     <div class="title">T8A01 </div>
     <div class="description">Which of the following is a form of amplitude modulation?</div>
@@ -3376,7 +3477,7 @@
       <li class="choice-d"><span>15 kHz</span></li>
     </ol>
   </div>
-  <h3 id="T8B">T8B &mdash; Amateur satellite operation; Doppler shift, basic orbits, operating protocols; control operator, transmitter power considerations; satellite tracking; digital modes</h3>
+  <h3 id="T8B"><a href="#toc">T8B</a> &mdash; Amateur satellite operation; Doppler shift, basic orbits, operating protocols; control operator, transmitter power considerations; satellite tracking; digital modes</h3>
   <div id="T8B01" class="question answer-d">
     <div class="title">T8B01 [97.301, 97.207(c)]</div>
     <div class="description">Who may be the control operator of a station communicating through an amateur satellite or space station?</div>
@@ -3487,7 +3588,7 @@
       <li class="choice-d"><span>WSJT</span></li>
     </ol>
   </div>
-  <h3 id="T8C">T8C &mdash; Operating activities: radio direction finding; radio control; contests; linking over the Internet; grid locators</h3>
+  <h3 id="T8C"><a href="#toc">T8C</a> &mdash; Operating activities: radio direction finding; radio control; contests; linking over the Internet; grid locators</h3>
   <div id="T8C01" class="question answer-c">
     <div class="title">T8C01 </div>
     <div class="description">Which of the following methods is used to locate sources of noise interference or jamming?</div>
@@ -3618,7 +3719,7 @@
       <li class="choice-d"><span>A technique for measuring signal strength of an amateur transmitter via the Internet</span></li>
     </ol>
   </div>
-  <h3 id="T8D">T8D &mdash; Non-voice communications: image signals; digital modes; CW; packet; PSK31; APRS; error detection and correction; NTSC</h3>
+  <h3 id="T8D"><a href="#toc">T8D</a> &mdash; Non-voice communications: image signals; digital modes; CW; packet; PSK31; APRS; error detection and correction; NTSC</h3>
   <div id="T8D01" class="question answer-d">
     <div class="title">T8D01 </div>
     <div class="description">Which of the following is an example of a digital communications method?</div>
@@ -3729,8 +3830,8 @@
       <li class="choice-d"><span>A method of compressing the data in a message so more information can be sent in a shorter time</span></li>
     </ol>
   </div>
-  <h2 id="T9">T9 &mdash; Antennas and feed lines - [2 Exam Questions - 2 Groups]</h2>
-  <h3 id="T9A">T9A &mdash; Antennas: vertical and horizontal polarization; concept of gain; common portable and mobile antennas; relationships between antenna length and frequency</h3>
+  <h2 id="T9"><a href="#toc">T9</a> &mdash; Antennas and feed lines - [2 Exam Questions - 2 Groups]</h2>
+  <h3 id="T9A"><a href="#toc">T9A</a> &mdash; Antennas: vertical and horizontal polarization; concept of gain; common portable and mobile antennas; relationships between antenna length and frequency</h3>
   <div id="T9A01" class="question answer-c">
     <div class="title">T9A01 </div>
     <div class="description">What is a beam antenna?</div>
@@ -3871,7 +3972,7 @@
       <li class="choice-d"><span>Making the antenna heavier so it will resist wind effects when in motion</span></li>
     </ol>
   </div>
-  <h3 id="T9B">T9B &mdash; Feed lines: types of feed lines; attenuation vs. frequency; SWR concepts; matching; weather protection; choosing RF connectors and feed lines</h3>
+  <h3 id="T9B"><a href="#toc">T9B</a> &mdash; Feed lines: types of feed lines; attenuation vs. frequency; SWR concepts; matching; weather protection; choosing RF connectors and feed lines</h3>
   <div id="T9B01" class="question answer-b">
     <div class="title">T9B01 </div>
     <div class="description">Why is it important to have a low SWR in an antenna system that uses coaxial cable feed line?</div>
@@ -3982,8 +4083,8 @@
       <li class="choice-d"><span>75-ohm flexible coax</span></li>
     </ol>
   </div>
-  <h2 id="T0">T0 &mdash; Electrical safety: AC and DC power circuits; antenna installation; RF hazards - [3 Exam Questions - 3 Groups]</h2>
-  <h3 id="T0A">T0A &mdash; Power circuits and hazards: hazardous voltages; fuses and circuit breakers; grounding; lightning protection; battery safety; electrical code compliance</h3>
+  <h2 id="T0"><a href="#toc">T0</a> &mdash; Electrical safety: AC and DC power circuits; antenna installation; RF hazards - [3 Exam Questions - 3 Groups]</h2>
+  <h3 id="T0A"><a href="#toc">T0A</a> &mdash; Power circuits and hazards: hazardous voltages; fuses and circuit breakers; grounding; lightning protection; battery safety; electrical code compliance</h3>
   <div id="T0A01" class="question answer-b">
     <div class="title">T0A01 </div>
     <div class="description">Which of the following is a safety hazard of a 12-volt storage battery?</div>
@@ -4094,7 +4195,7 @@
       <li class="choice-d"><span>You might receive an electric shock from the charged stored in large capacitors</span></li>
     </ol>
   </div>
-  <h3 id="T0B">T0B &mdash; Antenna safety: tower safety; erecting an antenna support; overhead power lines; installing an antenna</h3>
+  <h3 id="T0B"><a href="#toc">T0B</a> &mdash; Antenna safety: tower safety; erecting an antenna support; overhead power lines; installing an antenna</h3>
   <div id="T0B01" class="question answer-c">
     <div class="title">T0B01 </div>
     <div class="description">When should members of a tower work team wear a hard hat and safety glasses?</div>
@@ -4215,7 +4316,7 @@
       <li class="choice-d"><span>All of these choices are correct</span></li>
     </ol>
   </div>
-  <h3 id="T0C">T0C &mdash; RF hazards: radiation exposure; proximity to antennas; recognized safe power levels; exposure to others; radiation types; duty cycle</h3>
+  <h3 id="T0C"><a href="#toc">T0C</a> &mdash; RF hazards: radiation exposure; proximity to antennas; recognized safe power levels; exposure to others; radiation types; duty cycle</h3>
   <div id="T0C01" class="question answer-d">
     <div class="title">T0C01 </div>
     <div class="description">What type of radiation are VHF and UHF radio signals?</div>

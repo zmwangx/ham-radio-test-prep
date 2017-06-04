@@ -19,9 +19,25 @@ JINJA.filters.update({
 })
 TEMPLATE = JINJA.get_template('index.html')
 
+def gather_sections(objects):
+    sections = []
+    subsections = []
+    section = None
+    for obj in objects:
+        if isinstance(obj, parser.Section):
+            if section:
+                sections.append((section, subsections))
+                subsections = []
+            section = obj
+        elif isinstance(obj, parser.SubSection):
+            subsections.append(obj)
+    if section:
+        sections.append((section, subsections))
+    return sections
+
 def render(objects):
-    # TODO: TOC, intro, and instructions
-    return TEMPLATE.render(objects=objects)
+    sections = gather_sections(objects)
+    return TEMPLATE.render(objects=objects, sections=sections)
 
 def main():
     objects = parser.parse(parser.gettext())

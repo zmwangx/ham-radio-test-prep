@@ -11,8 +11,14 @@
     h2 { font-size: 1.3em; }
     h3 { font-size: 1.1em; }
     h1, h2, h3 { padding: 0; margin: 1em 0; }
+    p { margin: 0; }
     footer { font-size: 0.8em; color: #999; text-align: center; margin: 1em; }
     a { color: inherit; }
+    #toc { list-style-type: none; padding: 0 0 0 0.3em; }
+    #toc ul { list-style-type: none; }
+    #toc span { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+    #toc > li { margin-bottom: 0.5em; }
+    #toc > li > span, #toc a { font-weight: bold; }
     .question { margin: 1em 0; }
     .question .title { display: inline-block; font-weight: bold; cursor: pointer; }
     .question .title { user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; }
@@ -42,11 +48,31 @@
 </head>
 <body class="done-show-titles">
   <h1>{{ title }}</h1>
+  <ul id="toc">
+    <li><a href="#instructions">Instructions</a></li>
+    {%- for section, subsections in sections %}
+    <li>
+      <span><a href="#{{ section.id }}">{{ section.id }}</a> &mdash; {{ section.title }}</span>
+      <ul>
+        {%- for subsection in subsections %}
+        <li><span><a href="#{{ subsection.id }}">{{ subsection.id }}</a> &mdash; {{ subsection.title }}</span></li>
+        {%- endfor %}
+      </ul>
+    </li>
+    {%- endfor %}
+  </ul>
+  <h2 id="instructions"><a href="#toc">Instructions</a></h2>
+  <p>Press the &lsquo;a&rsquo; key to toggle answers.</p>
+  <p>When the answers are hidden, hover mouse over the title of a question to reveal its answer.</p>
+  <p>Click the title of a question to mark it as done.</p>
+  <p>Press the &lsquo;s&rsquo; key to cycle through display modes of the questions marked as done. There are three modes: show all, show titles only (default), and hide.</p>
+  <p>Press the &lsquo;d&rsquo; key to show the number of questions marked as done.</p>
+  <p>Display modes, marked questions and scroll position are saved in local storage, so you can close the page at any time and pick up your progress later.</p>
   {%- for obj in objects %}
   {%- if obj|issection %}
-  <h2 id="{{ obj.id }}">{{ obj.id }} &mdash; {{ obj.title }}</h2>
+  <h2 id="{{ obj.id }}"><a href="#toc">{{ obj.id }}</a> &mdash; {{ obj.title }}</h2>
   {%- elif obj|issubsection %}
-  <h3 id="{{ obj.id }}">{{ obj.id }} &mdash; {{ obj.title }}</h3>
+  <h3 id="{{ obj.id }}"><a href="#toc">{{ obj.id }}</a> &mdash; {{ obj.title }}</h3>
   {%- else %}
   <div id="{{ obj.id }}" class="question answer-{{ obj.answer|lower }}">
     <div class="title">{{ obj.id }} {{ obj.ref }}</div>
