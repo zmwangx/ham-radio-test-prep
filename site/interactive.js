@@ -25,6 +25,11 @@ $(function () {
     $status.text(status).fadeIn(200).delay(500).fadeOut(200)
   }
 
+  var showStats = function () {
+    var msg = 'Marked as done: ' + $('.question.done').length + '/' + $('.question').length
+    $status.text(msg).fadeIn(200).delay(1500).fadeOut(200)
+  }
+
   var saveState = function () {
     localStorage.setItem('showAnswers', $body.hasClass('show-answers'))
     var doneIDs = $.map($('.question.done'), function (elem) { return $(elem).attr('id') })
@@ -66,6 +71,9 @@ $(function () {
         break
       case 's':
         cycleDoneDisplayModes()
+        break
+      case 'd':
+        showStats()
         break
       default:
         break
