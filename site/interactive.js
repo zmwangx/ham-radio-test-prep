@@ -22,7 +22,7 @@ $(function () {
       return
     }
     $status.clearQueue()
-    $status.text(status).show(200).delay(500).hide(200)
+    $status.text(status).fadeIn(200).delay(500).fadeOut(200)
   }
 
   var saveState = function () {
