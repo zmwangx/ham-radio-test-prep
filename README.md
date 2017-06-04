@@ -6,12 +6,6 @@ Apparently there's also the [official exam review site](http://arrlexamreview.ap
 
 <https://rawgit.com/zmwangx/ham-radio-test-prep/master/site/index.html>
 
-## TODO
-
-* Expose option to show/hide all answers.
-* Click to mark question as done (put a check mark next to the title), and expose option to hide / show (either only titles for clicking, or entire questions) all these questions. The rationale here is that we may want to focus on the questions we found hard and/or got wrong previously.
-* Persist state in cookies.
-
 ## Copyright
 
 The code is MIT-licensed. The content (question pool) belongs to [ARRL](http://www.arrl.org/question-pools); no infringement intended. The content will be taken down within one work day upon request of the copyright owner; please contact <zmwangx@gmail.com>.
