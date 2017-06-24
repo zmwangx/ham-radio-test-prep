@@ -30,6 +30,12 @@ $(function () {
     $status.text(msg).fadeIn(200).delay(1500).fadeOut(200)
   }
 
+  var clear = function () {
+    if (confirm('Do you really want to clear all marked questions?')) {
+      $('.question.done').removeClass('done')
+    }
+  }
+
   var saveState = function () {
     localStorage.setItem('showAnswers', $body.hasClass('show-answers'))
     var doneIDs = $.map($('.question.done'), function (elem) { return $(elem).attr('id') })
@@ -75,6 +81,8 @@ $(function () {
       case 'd':
         showStats()
         break
+      case 'c':
+        clear()
       default:
         break
     }
